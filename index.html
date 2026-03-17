@@ -1,672 +1,503 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2868
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вайбоград — Воркшоп по вайбкодингу</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&family=Montserrat:wght@700;900&family=Orbitron:wght@400;700;900&family=Unbounded:wght@900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0B0E14;
+            --neon-purple: #B537F2;
+            --neon-cyan: #00F5FF;
+            --neon-pink: #FF007A;
+            --text: #F0F4FF;
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(0, 245, 255, 0.15);
+            --amber: #924800;
+            --green: #0F5C2E;
+            --violet: #5B1D9E;
+        }
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="ru">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>\uc0\u1042 \u1072 \u1081 \u1073 \u1086 \u1075 \u1088 \u1072 \u1076  \'97 \u1042 \u1086 \u1088 \u1082 \u1096 \u1086 \u1087  \u1087 \u1086  \u1074 \u1072 \u1081 \u1073 \u1082 \u1086 \u1076 \u1080 \u1085 \u1075 \u1091 </title>\
-    <script src="https://cdn.tailwindcss.com"></script>\
-    <link rel="preconnect" href="https://fonts.googleapis.com">\
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;700&family=Montserrat:wght@700;900&family=Orbitron:wght@400;700;900&family=Unbounded:wght@900&display=swap" rel="stylesheet">\
-    <style>\
-        :root \{\
-            --bg: #0B0E14;\
-            --neon-purple: #B537F2;\
-            --neon-cyan: #00F5FF;\
-            --neon-pink: #FF007A;\
-            --text: #F0F4FF;\
-            --glass-bg: rgba(255, 255, 255, 0.04);\
-            --glass-border: rgba(0, 245, 255, 0.15);\
-            --amber: #924800;\
-            --green: #0F5C2E;\
-            --violet: #5B1D9E;\
-        \}\
-\
-        body \{\
-            background-color: var(--bg);\
-            background-image: \
-                radial-gradient(circle at 10% 20%, rgba(181, 55, 242, 0.1) 0%, transparent 40%),\
-                radial-gradient(circle at 90% 80%, rgba(0, 245, 255, 0.08) 0%, transparent 40%),\
-                radial-gradient(circle at 50% 50%, transparent 0%, transparent 15%, rgba(255,255,255,0.01) 15.2%, transparent 15.5%, transparent 30%, rgba(255,255,255,0.01) 30.2%, transparent 30.5%);\
-            background-attachment: fixed;\
-            color: var(--text);\
-            font-family: 'Manrope', sans-serif;\
-            margin: 0;\
-            overflow: hidden;\
-            height: 100vh;\
-            display: flex;\
-            flex-direction: column;\
-            user-select: none;\
-        \}\
-\
-        .unbounded \{ font-family: 'Unbounded', sans-serif; text-transform: uppercase; \}\
-        .orbitron \{ font-family: 'Orbitron', sans-serif; text-transform: uppercase; \}\
-        .montserrat \{ font-family: 'Montserrat', sans-serif; text-transform: uppercase; \}\
-\
-        .gradient-text \{\
-            background: linear-gradient(90deg, #FFFFFF 0%, var(--neon-purple) 45%, var(--neon-cyan) 100%);\
-            -webkit-background-clip: text;\
-            -webkit-text-fill-color: transparent;\
-        \}\
-\
-        .glass-card \{\
-            background: var(--glass-bg);\
-            border: 1px solid var(--glass-border);\
-            backdrop-filter: blur(12px);\
-            border-radius: 24px;\
-            transition: all 0.3s ease;\
-        \}\
-\
-        .slide-container \{\
-            flex-grow: 1;\
-            position: relative;\
-            display: flex;\
-            align-items: center;\
-            justify-content: center;\
-            padding: 40px;\
-            padding-bottom: 100px; \
-        \}\
-\
-        .slide \{\
-            width: 100%;\
-            max-width: 1300px;\
-            height: 100%;\
-            display: none;\
-            flex-direction: column;\
-            justify-content: center;\
-            animation: slideFadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);\
-        \}\
-\
-        .slide.active \{ display: flex; \}\
-\
-        @keyframes slideFadeIn \{\
-            from \{ opacity: 0; transform: translateY(20px); \}\
-            to \{ opacity: 1; transform: translateY(0); \}\
-        \}\
-\
-        .nav-bar \{\
-            position: fixed;\
-            bottom: 0;\
-            left: 0;\
-            right: 0;\
-            height: 80px;\
-            display: flex;\
-            align-items: center;\
-            justify-content: center;\
-            padding: 0 40px;\
-            background: rgba(11, 14, 20, 0.95);\
-            border-top: 1px solid rgba(255,255,255,0.05);\
-            backdrop-filter: blur(10px);\
-            z-index: 1000;\
-        \}\
-\
-        .progress-dots \{ \
-            display: flex; \
-            gap: 8px; \
-            overflow-x: auto; \
-            padding: 5px; \
-            max-width: 80%; \
-            justify-content: center;\
-        \}\
-        .dot \{ \
-            min-width: 8px; \
-            height: 8px; \
-            border-radius: 50%; \
-            background: rgba(255,255,255,0.1); \
-            cursor: pointer; \
-            transition: 0.3s; \
-        \}\
-        .dot.active \{ \
-            background: var(--neon-cyan); \
-            transform: scale(1.6); \
-            box-shadow: 0 0 10px var(--neon-cyan); \
-        \}\
-\
-        .slide-counter-nav \{\
-            position: absolute;\
-            right: 40px;\
-            opacity: 0.3;\
-            font-weight: bold;\
-            font-size: 14px;\
-            font-family: 'Montserrat', sans-serif;\
-            pointer-events: none;\
-        \}\
-\
-        .type-badge \{\
-            position: absolute;\
-            top: 40px;\
-            right: 60px;\
-            padding: 10px 28px;\
-            border-radius: 100px;\
-            font-size: 14px;\
-            font-weight: bold;\
-            letter-spacing: 0.1em;\
-            z-index: 50;\
-        \}\
-        .badge-question \{ background: var(--amber); \}\
-        .badge-practice \{ background: var(--green); \}\
-        .badge-demo \{ background: var(--violet); \}\
-\
-        .btn-start \{\
-            background: #B537F2;\
-            padding: 22px 90px;\
-            border-radius: 100px;\
-            color: white;\
-            font-family: 'Montserrat', sans-serif;\
-            font-weight: 900;\
-            font-size: 1.5rem;\
-            box-shadow: 0 0 40px rgba(181, 55, 242, 0.5);\
-            transition: all 0.3s;\
-            cursor: pointer;\
-            border: none;\
-        \}\
-\
-        .expert-photo \{\
-            width: 450px;\
-            height: 450px;\
-            border-radius: 50%;\
-            border: 4px solid var(--neon-purple);\
-            overflow: hidden;\
-            box-shadow: 0 0 60px rgba(181, 55, 242, 0.3);\
-            background: #12151c;\
-            display: flex;\
-            align-items: center;\
-            justify-content: center;\
-        \}\
-        .expert-photo img \{\
-            width: 100%;\
-            height: 100%;\
-            object-fit: cover;\
-        \}\
-\
-        .image-placeholder-16-9 \{\
-            width: 100%;\
-            max-width: 1100px;\
-            aspect-ratio: 16 / 9;\
-            background: rgba(255,255,255,0.02);\
-            border: 1px solid var(--glass-border);\
-            border-radius: 20px;\
-            display: flex;\
-            align-items: center;\
-            justify-content: center;\
-            margin: 0 auto;\
-            overflow: hidden;\
-            box-shadow: 0 0 40px rgba(0, 245, 255, 0.05);\
-        \}\
-        .image-placeholder-16-9 img \{\
-            width: 100%;\
-            height: 100%;\
-            object-fit: contain;\
-        \}\
-\
-        .code-block \{\
-            background: #0D1117;\
-            border: 1px solid rgba(0, 245, 255, 0.3);\
-            font-family: 'Manrope', sans-serif;\
-            padding: 40px;\
-            border-radius: 20px;\
-            color: var(--neon-cyan);\
-            font-size: 1.4rem;\
-            line-height: 1.7;\
-        \}\
-\
-        /* \uc0\u1058 \u1072 \u1073 \u1083 \u1080 \u1094 \u1072  \u1076 \u1083 \u1103  \u1058 \u1047  */\
-        .tz-table \{\
-            width: 100%;\
-            border-collapse: collapse;\
-            font-size: 1.25rem;\
-        \}\
-        .tz-table th \{\
-            text-align: left;\
-            padding: 24px 28px;\
-            background: rgba(0, 245, 245, 0.08);\
-            color: var(--neon-cyan);\
-            font-family: 'Montserrat', sans-serif;\
-            text-transform: uppercase;\
-            font-weight: 900;\
-            border-bottom: 2px solid var(--glass-border);\
-        \}\
-        .tz-table td \{\
-            padding: 24px 28px;\
-            border-bottom: 1px solid rgba(255,255,255,0.08);\
-            vertical-align: top;\
-            transition: all 0.4s ease;\
-        \}\
-        .tz-label \{ font-weight: 800; color: white; font-size: 1.4rem; \}\
-        .tz-desc \{ opacity: 0.8; \}\
-        .tz-example \{ color: var(--neon-purple); font-style: italic; font-size: 1.1rem; \}\
-\
-        .hidden-row \{ opacity: 0 !important; transform: translateY(10px) !important; pointer-events: none !important; \}\
-        .visible-row \{ opacity: 1 !important; transform: translateY(0) !important; pointer-events: auto !important; \}\
-\
-        /* \uc0\u1057 \u1087 \u1080 \u1089 \u1086 \u1082  \u1087 \u1088 \u1072 \u1082 \u1090 \u1080 \u1082 \u1080  */\
-        .practice-step \{\
-            display: flex;\
-            align-items: flex-start;\
-            gap: 25px;\
-            padding: 24px;\
-            border-bottom: 1px solid rgba(255,255,255,0.05);\
-        \}\
-        .step-num \{\
-            width: 48px;\
-            height: 48px;\
-            border-radius: 50%;\
-            background: var(--green);\
-            display: flex;\
-            align-items: center;\
-            justify-content: center;\
-            font-size: 22px;\
-            font-weight: 900;\
-            color: white;\
-            flex-shrink: 0;\
-            box-shadow: 0 0 15px rgba(15, 92, 46, 0.4);\
-        \}\
-    </style>\
-</head>\
-<body>\
-\
-    <div id="typeBadge" class="type-badge montserrat hidden"></div>\
-\
-    <div class="slide-container" id="slides-root"></div>\
-\
-    <div class="nav-bar">\
-        <div class="progress-dots" id="dots"></div>\
-        <span class="slide-counter-nav" id="counter">01/31</span>\
-    </div>\
-\
-    <script>\
-        const slidesData = [\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  1: \u1058 \u1048 \u1058 \u1059 \u1051 \u1068 \u1053 \u1067 \u1049 \
-            \{ \
-                id: 1, type: 'title', \
-                content: `<div class="text-center">\
-                    <p class="montserrat opacity-60 text-3xl mb-8 tracking-[0.5em]">\uc0\u1044 \u1054 \u1041 \u1056 \u1054  \u1055 \u1054 \u1046 \u1040 \u1051 \u1054 \u1042 \u1040 \u1058 \u1068  \u1042 </p>\
-                    <h1 class="unbounded gradient-text text-[8.5rem] mb-12 px-10 leading-tight">\uc0\u1042 \u1040 \u1049 \u1041 \u1054 \u1043 \u1056 \u1040 \u1044 </h1>\
-                    <p class="orbitron opacity-40 text-4xl tracking-[0.3em] mb-16">\uc0\u1042 \u1086 \u1088 \u1082 \u1096 \u1086 \u1087  \u8470 1</p>\
-                    <button onclick="changeSlide(1)" class="btn-start">\uc0\u1057 \u1058 \u1040 \u1056 \u1058 </button>\
-                </div>`\
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  2: \u1054 \u1041  \u1069 \u1050 \u1057 \u1055 \u1045 \u1056 \u1058 \u1045  (\u1048 \u1057 \u1055 \u1056 \u1040 \u1042 \u1051 \u1045 \u1053 \u1054 : \u1055 \u1059 \u1058 \u1068  \u1050  \u1050 \u1040 \u1056 \u1058 \u1048 \u1053 \u1050 \u1045 )\
-            \{\
-                id: 2, type: 'info',\
-                content: `<div class="flex items-center gap-24">\
-                    <div class="w-1/2 flex justify-center">\
-                        <div class="expert-photo">\
-                            <img src="images/expert.jpg" alt="\uc0\u1044 \u1072 \u1088 \u1100 \u1103  \u1058 \u1091 \u1095 \u1072 " onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=&quot;opacity-20 orbitron text-2xl&quot;>images/expert.jpg</span>'">\
-                            <div class="absolute -bottom-6 right-10 bg-[#B537F2] text-xs px-6 py-2 rounded-full montserrat font-black uppercase">\uc0\u1052 \u1077 \u1090 \u1086 \u1076 \u1080 \u1089 \u1090 </div>\
-                        </div>\
-                    </div>\
-                    <div class="w-1/2">\
-                        <p class="montserrat text-neon-cyan text-sm mb-4 tracking-widest uppercase">\uc0\u1054 \u1073  \u1101 \u1082 \u1089 \u1087 \u1077 \u1088 \u1090 \u1077 </p>\
-                        <h2 class="unbounded text-7xl mb-8 leading-tight">\uc0\u1044 \u1072 \u1088 \u1100 \u1103  \u1058 \u1091 \u1095 \u1072 </h2>\
-                        <div class="flex gap-4 mb-10">\
-                            <span class="border border-[#B537F2] text-xs px-4 py-2 rounded-full montserrat font-bold">\uc0\u1052 \u1045 \u1058 \u1054 \u1044 \u1048 \u1057 \u1058 </span>\
-                            <span class="border border-[#B537F2] text-xs px-4 py-2 rounded-full montserrat font-bold">LEARNING DESIGNER</span>\
-                        </div>\
-                        <ul class="space-y-6 text-2xl opacity-90">\
-                            <li>\uc0\u55356 \u57101  \u1042 \u1072 \u1085 \u1082 \u1091 \u1074 \u1077 \u1088 , \u1050 \u1072 \u1085 \u1072 \u1076 \u1072  \u55356 \u56808 \u55356 \u56806 </li>\
-                            <li>\uc0\u55357 \u56960  \u1057 \u1086 -\u1086 \u1089 \u1085 \u1086 \u1074 \u1072 \u1090 \u1077 \u1083 \u1100  LXD hero</li>\
-                            <li>\uc0\u55356 \u57241 \u65039  \u1057 \u1087 \u1080 \u1082 \u1077 \u1088  \u1082 \u1086 \u1085 \u1092 \u1077 \u1088 \u1077 \u1085 \u1094 \u1080 \u1081 </li>\
-                            <li>\uc0\u9889  skyeng \'b7 Expedia \'b7 Kodland</li>\
-                        </ul>\
-                    </div>\
-                </div>`\
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  3: \u1050 \u1040 \u1056 \u1058 \u1040 \
-            \{ \
-                id: 3, type: 'info', \
-                content: `<div class="flex flex-col items-center justify-center h-full w-full">\
-                    <h2 class="orbitron gradient-text text-[4.5rem] mb-24 tracking-widest uppercase font-black text-center leading-none">\uc0\u55357 \u56826 \u65039  \u1050 \u1040 \u1056 \u1058 \u1040  \u1055 \u1056 \u1048 \u1050 \u1051 \u1070 \u1063 \u1045 \u1053 \u1048 \u1071 </h2>\
-                    <div class="grid grid-cols-6 gap-8 w-full px-8 relative">\
-                        <div class="absolute h-[2px] bg-white/10 w-[84%] left-[8%] top-[45px] -z-10"></div>\
-                        $\{[\
-                            \{ icon: '\uc0\u55356 \u57249 ', title: '\u1050 \u1054 \u1051 \u1045 \u1057 \u1054  \u1054 \u1041 \u1054 \u1047 \u1056 \u1045 \u1053 \u1048 \u1071 ', desc: '\u1069 \u1090 \u1072 \u1087 \u1099  + \u1092 \u1086 \u1088 \u1084 \u1091 \u1083 \u1072  \u1080 \u1076 \u1077 \u1080 ', time: '15 \u1052 \u1048 \u1053 ' \},\
-                            \{ icon: '\uc0\u55356 \u57088 ', title: '\u1051 \u1040 \u1041 \u1048 \u1056 \u1048 \u1053 \u1058 ', desc: '\u1057 \u1086 \u1079 \u1076 \u1072 \u1085 \u1080 \u1077  \u1058 \u1047 ', time: '50 \u1052 \u1048 \u1053 ' \},\
-                            \{ icon: '\uc0\u55358 \u56632 ', title: '\u1041 \u1040 \u1058 \u1059 \u1058 \u1067 ', desc: '\u1055 \u1077 \u1088 \u1077 \u1088 \u1099 \u1074 ', time: '10 \u1052 \u1048 \u1053 ' \},\
-                            \{ icon: '\uc0\u55357 \u56962 ', title: '\u1055 \u1054 \u1045 \u1047 \u1044 ', desc: '\u1056 \u1072 \u1079 \u1088 \u1072 \u1073 \u1086 \u1090 \u1082 \u1072  \u1087 \u1088 \u1086 \u1090 \u1086 \u1090 \u1080 \u1087 \u1072 ', time: '50 \u1052 \u1048 \u1053 ' \},\
-                            \{ icon: '\uc0\u55356 \u57248 ', title: '\u1050 \u1040 \u1056 \u1059 \u1057 \u1045 \u1051 \u1068 ', desc: '\u1048 \u1090 \u1077 \u1088 \u1072 \u1090 \u1080 \u1074 \u1085 \u1099 \u1081  \u1087 \u1086 \u1076 \u1093 \u1086 \u1076 ', time: '15 \u1052 \u1048 \u1053 ' \},\
-                            \{ icon: '\uc0\u55356 \u57281 ', title: '\u1048 \u1058 \u1054 \u1043 \u1048 ', desc: '\u1047 \u1072 \u1074 \u1077 \u1088 \u1096 \u1077 \u1085 \u1080 \u1077  \u1087 \u1091 \u1090 \u1080 ', time: '10 \u1052 \u1048 \u1053 ' \}\
-                        ].map((item, i) => `\
-                            <div class="flex flex-col items-center text-center">\
-                                <div class="w-24 h-24 rounded-full flex items-center justify-center mb-8 text-4xl transition-all duration-300 cursor-pointer bg-white/5 border border-white/20 hover:scale-110 hover:shadow-[0_0_50px_rgba(0,245,255,0.6)] hover:border-cyan-400">\
-                                    $\{item.icon\}\
-                                </div>\
-                                <h3 class="orbitron text-[12px] font-bold mb-3 tracking-wider text-white uppercase">$\{item.title\}</h3>\
-                                <p class="manrope text-[11px] opacity-60 leading-tight mb-4 min-h-[2.5em] px-2">$\{item.desc\}</p>\
-                                <p class="montserrat text-[13px] font-black text-neon-cyan tracking-widest">$\{item.time\}</p>\
-                            </div>\
-                        `).join('')\}\
-                    </div>\
-                </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  4: \u1055 \u1056 \u1040 \u1042 \u1048 \u1051 \u1040 \
-            \{ \
-                id: 4, type: 'info', \
-                content: `<div class="flex flex-col items-center justify-center h-full w-full">\
-                    <h2 class="orbitron gradient-text text-[4.5rem] mb-16 uppercase font-black tracking-widest text-center leading-none">\uc0\u1055 \u1056 \u1040 \u1042 \u1048 \u1051 \u1040  \u1055 \u1040 \u1056 \u1050 \u1040 </h2>\
-                    <div class="grid grid-cols-2 gap-10 max-w-6xl w-full">\
-                        <div class="glass-card p-12 flex items-center gap-10 border-cyan-500/20">\
-                            <span class="text-7xl">\uc0\u55357 \u56492 </span>\
-                            <p class="text-3xl font-black uppercase tracking-widest">\uc0\u1047 \u1072 \u1076 \u1072 \u1105 \u1084  \u1074 \u1086 \u1087 \u1088 \u1086 \u1089 \u1099  \u1074  \u1095 \u1072 \u1090 \u1077 </p>\
-                        </div>\
-                        <div class="glass-card p-12 flex items-center gap-10 border-purple-500/20">\
-                            <span class="text-7xl">\uc0\u55356 \u57262 </span>\
-                            <p class="text-3xl font-black uppercase tracking-widest">\uc0\u1042 \u1082 \u1083 \u1102 \u1095 \u1072 \u1077 \u1084  \u1083 \u1102 \u1073 \u1086 \u1087 \u1099 \u1090 \u1089 \u1090 \u1074 \u1086 </p>\
-                        </div>\
-                        <div class="glass-card p-12 flex items-center gap-10 border-pink-500/20">\
-                            <span class="text-7xl">\uc0\u55358 \u56598 </span>\
-                            <p class="text-3xl font-black uppercase tracking-widest">\uc0\u1048 \u1048 -\u1084 \u1072 \u1081 \u1085 \u1076 \u1089 \u1077 \u1090  \'97 \u1080 \u1090 \u1077 \u1088 \u1080 \u1088 \u1091 \u1077 \u1084 </p>\
-                        </div>\
-                        <div class="glass-card p-12 flex items-center gap-10 border-cyan-500/20">\
-                            <span class="text-7xl">\uc0\u55358 \u56605 </span>\
-                            <p class="text-3xl font-black uppercase tracking-widest">\uc0\u1041 \u1077 \u1088 \u1077 \u1078 \u1085 \u1086 \u1089 \u1090 \u1100  \u1076 \u1088 \u1091 \u1075  \u1082  \u1076 \u1088 \u1091 \u1075 \u1091 </p>\
-                        </div>\
-                    </div>\
-                </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  5: \u1042 \u1040 \u1049 \u1041 \
-            \{ \
-                id: 5, type: '\uc0\u1042 \u1054 \u1055 \u1056 \u1054 \u1057  \u10067 ', \
-                content: `<div class="text-center h-full flex flex-col justify-center items-center">\
-                    <h2 class="unbounded gradient-text text-[8rem] tracking-tighter uppercase font-black leading-none">\uc0\u1053 \u1072 \u1089 \u1090 \u1088 \u1086 \u1080 \u1084 \u1089 \u1103  \u1085 \u1072  \u1074 \u1072 \u1081 \u1073 </h2>\
-                    <p class="orbitron opacity-40 text-5xl mt-10 tracking-[0.5em] font-black uppercase text-center">(\uc0\u1086 \u1087 \u1088 \u1086 \u1089 )</p>\
-                </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  6: \u1041 \u1051 \u1054 \u1050  1\
-            \{ id: 6, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">01</h3><p class="montserrat text-neon-purple text-2xl tracking-[0.6em] mb-6 font-black">\uc0\u1041 \u1051 \u1054 \u1050  1</p><h2 class="unbounded gradient-text text-[8rem]">\u1069 \u1058 \u1040 \u1055 \u1067  \u1056 \u1040 \u1047 \u1056 \u1040 \u1041 \u1054 \u1058 \u1050 \u1048 </h2></div>` \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  7: \u1055 \u1059 \u1058 \u1068  (\u1048 \u1057 \u1055 \u1056 \u1040 \u1042 \u1051 \u1045 \u1053 \u1054 : \u1055 \u1059 \u1058 \u1068  \u1050  \u1050 \u1040 \u1056 \u1058 \u1048 \u1053 \u1050 \u1045 )\
-            \{ \
-                id: 7, type: 'info', \
-                content: `<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; width: 100%;">\
-                    <h2 class="orbitron gradient-text text-5xl mb-16 text-center uppercase tracking-widest font-black">\uc0\u1055 \u1059 \u1058 \u1068  \u1054 \u1058  \u1048 \u1044 \u1045 \u1048  \u1050  \u1055 \u1056 \u1054 \u1044 \u1059 \u1050 \u1058 \u1059 </h2>\
-                    <div class="image-placeholder-16-9 shadow-[0_0_80px_rgba(0,245,255,0.2)]">\
-                        <img src="images/steps.jpg" alt="Ferris Wheel Development Stages" onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=&quot;opacity-20 orbitron text-5xl&quot;>images/steps.jpg</span>'">\
-                    </div>\
-                </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  8: \u1063 \u1058 \u1054  \u1057 \u1054 \u1047 \u1044 \u1040 \u1045 \u1052 \
-            \{ \
-                id: 8, type: '\uc0\u1042 \u1054 \u1055 \u1056 \u1054 \u1057  \u10067 ', \
-                content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron gradient-text text-5xl mb-16 text-center uppercase font-black">\uc0\u1063 \u1058 \u1054  \u1057 \u1054 \u1047 \u1044 \u1040 \u1045 \u1052  \u1042 \u1052 \u1045 \u1057 \u1058 \u1045 ?</h2><div class="grid grid-cols-3 gap-10 w-full max-w-7xl"><div class="glass-card p-20 text-center flex items-center justify-center border-orange-500/30 hover:scale-105 transition-transform"><p class="font-black uppercase text-4xl">\u55356 \u57263  \u1050 \u1042 \u1048 \u1047 </p></div><div class="glass-card p-20 text-center flex items-center justify-center border-orange-500/30 hover:scale-105 transition-transform"><p class="font-black uppercase text-4xl">\u55357 \u56538  \u1054 \u1053 \u1051 \u1040 \u1049 \u1053 -\u1050 \u1059 \u1056 \u1057 </p></div><div class="glass-card p-20 text-center flex items-center justify-center border-orange-500/30 hover:scale-105 transition-transform"><p class="font-black uppercase text-4xl">\u55356 \u57104  \u1057 \u1040 \u1049 \u1058  \u1050 \u1059 \u1056 \u1057 \u1040 </p></div></div></div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  9: \u1060 \u1054 \u1056 \u1052 \u1059 \u1051 \u1040 \
-            \{ \
-                id: 9, type: '\uc0\u1055 \u1056 \u1040 \u1050 \u1058 \u1048 \u1050 \u1040  \u9997  5 \u1052 \u1048 \u1053 ', \
-                content: `<div class="flex flex-col items-center justify-center h-full w-full"><h2 class="orbitron text-green-500 text-6xl mb-12 text-center uppercase font-black">\uc0\u1060 \u1054 \u1056 \u1052 \u1059 \u1051 \u1040  \u1048 \u1044 \u1045 \u1048 </h2><div class="glass-card p-16 border-green-500/40 text-4xl leading-relaxed text-center italic max-w-6xl mx-auto mb-16 shadow-2xl shadow-green-900/10">[\u1060 \u1086 \u1088 \u1084 \u1072 \u1090  \u1087 \u1088 \u1086 \u1076 \u1091 \u1082 \u1090 \u1072 /\u1080 \u1085 \u1089 \u1090 \u1088 \u1091 \u1084 \u1077 \u1085 \u1090 \u1072 ] \u1076 \u1083 \u1103  [\u1072 \u1091 \u1076 \u1080 \u1090 \u1086 \u1088 \u1080 \u1103 ], \u1082 \u1086 \u1090 \u1086 \u1088 \u1099 \u1081  \u1087 \u1086 \u1084 \u1086 \u1075 \u1072 \u1077 \u1090  [\u1095 \u1090 \u1086  \u1076 \u1077 \u1083 \u1072 \u1077 \u1090  / \u1082 \u1072 \u1082 \u1091 \u1102  \u1087 \u1088 \u1086 \u1073 \u1083 \u1077 \u1084 \u1091  \u1088 \u1077 \u1096 \u1072 \u1077 \u1090 / \u1086 \u1073 \u1088 \u1072 \u1079 \u1086 \u1074 \u1072 \u1090 \u1077 \u1083 \u1100 \u1085 \u1099 \u1081  \u1088 \u1077 \u1079 \u1091 \u1083 \u1100 \u1090 \u1072 \u1090 ], \u1074 \u1084 \u1077 \u1089 \u1090 \u1086  \u1090 \u1086 \u1075 \u1086  \u1095 \u1090 \u1086 \u1073 \u1099  [\u1082 \u1072 \u1082  \u1089 \u1077 \u1081 \u1095 \u1072 \u1089  \u1088 \u1077 \u1096 \u1072 \u1102 \u1090  \u1101 \u1090 \u1086  \'97 \u1085 \u1077 \u1091 \u1076 \u1086 \u1073 \u1085 \u1086 /\u1084 \u1077 \u1076 \u1083 \u1077 \u1085 \u1085 \u1086  \u1080 \u1083 \u1080  \u1090 \u1086 , \u1095 \u1077 \u1075 \u1086  \u1089 \u1077 \u1081 \u1095 \u1072 \u1089  \u1085 \u1077  \u1076 \u1077 \u1083 \u1072 \u1102 \u1090 ].</div><div class="w-full max-w-6xl"><p class="orbitron text-neon-cyan text-2xl mb-10 text-center tracking-widest uppercase font-black">\u1045 \u1089 \u1083 \u1080  \u1085 \u1077 \u1090  \u1080 \u1076 \u1077 \u1080 , \u1090 \u1086  \u1074 \u1099 \u1073 \u1077 \u1088 \u1080  \u1086 \u1076 \u1085 \u1091  \u1080 \u1079  \u1101 \u1090 \u1080 \u1093 :</p><div class="grid grid-cols-3 gap-8"><div class="glass-card p-10 text-center border-white/10 hover:border-neon-cyan transition-colors cursor-pointer"><p class="montserrat text-xl font-black uppercase">\u1082 \u1074 \u1080 \u1079 </p></div><div class="glass-card p-10 text-center border-white/10 hover:border-neon-cyan transition-colors cursor-pointer"><p class="montserrat text-xl font-black uppercase">\u1086 \u1085 \u1083 \u1072 \u1081 \u1085 -\u1082 \u1091 \u1088 \u1089 </p></div><div class="glass-card p-10 text-center border-white/10 hover:border-neon-cyan transition-colors cursor-pointer"><p class="montserrat text-xl font-black uppercase">\u1089 \u1072 \u1081 \u1090 -\u1087 \u1086 \u1088 \u1090 \u1092 \u1086 \u1083 \u1080 \u1086 </p></div></div></div></div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  10: \u1041 \u1051 \u1054 \u1050  2\
-            \{ id: 10, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">02</h3><p class="montserrat text-neon-cyan text-xl tracking-[0.6em] mb-6 font-black uppercase">\uc0\u1041 \u1051 \u1054 \u1050  2</p><h2 class="unbounded gradient-text text-[8rem]">\u1057 \u1054 \u1047 \u1044 \u1040 \u1053 \u1048 \u1045  \u1058 \u1047 </h2></div>` \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  11: \u1055 \u1056 \u1054 \u1052 \u1055 \u1058 \u1048 \u1053 \u1043 \
-            \{ id: 11, type: 'info', content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron gradient-text text-6xl mb-20 text-center uppercase font-black uppercase">\uc0\u1044 \u1042 \u1040  \u1055 \u1054 \u1044 \u1061 \u1054 \u1044 \u1040  \u1050  \u1055 \u1056 \u1054 \u1052 \u1055 \u1058 \u1048 \u1053 \u1043 \u1059 </h2><div class="grid grid-cols-2 gap-16 w-full max-w-7xl"><div class="glass-card p-16 border-red-500/20 opacity-50"><h3 class="orbitron text-red-500 text-4xl mb-8 font-black uppercase">\u10060  \u1041 \u1077 \u1081 \u1073 \u1080 -\u1087 \u1088 \u1086 \u1084 \u1087 \u1090 </h3><p class="text-3xl font-bold">\'ab\u1057 \u1076 \u1077 \u1083 \u1072 \u1081  \u1082 \u1074 \u1080 \u1079 \'bb \u8594  AI \u1091 \u1075 \u1072 \u1076 \u1099 \u1074 \u1072 \u1077 \u1090  \u1080  \u1086 \u1096 \u1080 \u1073 \u1072 \u1077 \u1090 \u1089 \u1103 </p></div><div class="glass-card p-16 border-cyan-500/40"><h3 class="orbitron text-neon-cyan text-4xl mb-8 font-black uppercase">\u9989  \u1052 \u1077 \u1075 \u1072 \u1087 \u1088 \u1086 \u1084 \u1087 \u1090  (\u1058 \u1047 )</h3><p class="text-3xl font-bold">\u1058 \u1047  \u8594  \u1056 \u1077 \u1079 \u1091 \u1083 \u1100 \u1090 \u1072 \u1090  \u1089  \u1087 \u1077 \u1088 \u1074 \u1086 \u1075 \u1086  \u1088 \u1072 \u1079 \u1072 </p></div></div></div>` \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  12: \u1063 \u1058 \u1054  \u1058 \u1040 \u1050 \u1054 \u1045  \u1058 \u1047 \
-            \{ id: 12, type: 'info', content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron gradient-text text-5xl mb-16 text-center uppercase font-black uppercase">\uc0\u1063 \u1058 \u1054  \u1058 \u1040 \u1050 \u1054 \u1045  \u1058 \u1047 ?</h2><div class="space-y-10 max-w-5xl mx-auto"><div class="glass-card p-12 border-l-[12px] border-cyan-400 text-4xl font-bold">\u1048 \u1089 \u1090 \u1086 \u1095 \u1085 \u1080 \u1082  \u1087 \u1088 \u1072 \u1074 \u1076 \u1099  \u1076 \u1083 \u1103  \u1048 \u1048 </div><div class="glass-card p-12 border-l-[12px] border-cyan-400 text-4xl font-bold">\u1052 \u1077 \u1085 \u1100 \u1096 \u1077  \u1080 \u1090 \u1077 \u1088 \u1072 \u1094 \u1080 \u1081  \'97 \u1073 \u1099 \u1089 \u1090 \u1088 \u1077 \u1077  \u1088 \u1077 \u1079 \u1091 \u1083 \u1100 \u1090 \u1072 \u1090 </div><div class="p-12 text-center text-neon-pink orbitron text-6xl mt-16 animate-pulse tracking-widest font-black uppercase">\u55356 \u57260  \u1044 \u1045 \u1052 \u1054 </div></div></div>` \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  13: \u1058 \u1040 \u1041 \u1051 \u1048 \u1062 \u1040  \u1058 \u1047 \
-            \{ \
-                id: 13, type: 'info', isSequential: true, totalSubSteps: 7,\
-                content: `\
-                    <div class="flex flex-col items-center justify-center h-full w-full">\
-                        <h2 class="orbitron gradient-text text-[4rem] mb-12 text-center uppercase font-black tracking-widest leading-none">\uc0\u1057 \u1058 \u1056 \u1059 \u1050 \u1058 \u1059 \u1056 \u1040  \u1058 \u1047 </h2>\
-                        <div class="glass-card p-0 overflow-hidden w-full max-w-7xl shadow-[0_0_80px_rgba(0,245,255,0.15)]">\
-                            <table class="tz-table">\
-                                <thead><tr><th class="w-1/4 uppercase tracking-widest">\uc0\u1056 \u1072 \u1079 \u1076 \u1077 \u1083 </th><th class="w-1/3 uppercase tracking-widest">\u1063 \u1090 \u1086  \u1074 \u1085 \u1091 \u1090 \u1088 \u1080 </th><th class="w-2/5 uppercase tracking-widest">\u1055 \u1088 \u1080 \u1084 \u1077 \u1088 \u1099 </th></tr></thead>\
-                                <tbody id="tz-body">\
-                                    <tr class="step-row hidden-row"><td><span class="tz-label uppercase tracking-widest">\uc0\u1062 \u1077 \u1083 \u1100  \u1087 \u1088 \u1086 \u1076 \u1091 \u1082 \u1090 \u1072 </span></td><td><span class="tz-desc">\u1047 \u1072 \u1095 \u1077 \u1084  \u1089 \u1091 \u1097 \u1077 \u1089 \u1090 \u1074 \u1091 \u1077 \u1090 ?</span></td><td><span class="tz-example">\u1054 \u1073 \u1091 \u1095 \u1080 \u1090 \u1100  [\u1072 \u1091 \u1076 \u1080 \u1090 \u1086 \u1088 \u1080 \u1102 ] [\u1085 \u1072 \u1074 \u1099 \u1082 \u1091 ]</span></td></tr>\
-                                    <tr class="step-row hidden-row"><td><span class="tz-label uppercase tracking-widest">\uc0\u1055 \u1086 \u1083 \u1100 \u1079 \u1086 \u1074 \u1072 \u1090 \u1077 \u1083 \u1100 </span></td><td><span class="tz-desc">\u1050 \u1090 \u1086  \u1080  \u1074  \u1082 \u1072 \u1082 \u1086 \u1084  \u1082 \u1086 \u1085 \u1090 \u1077 \u1082 \u1089 \u1090 \u1077 ?</span></td><td><span class="tz-example">\u1052 \u1077 \u1090 \u1086 \u1076 \u1080 \u1089 \u1090  \u1086 \u1085 \u1083 \u1072 \u1081 \u1085 -\u1096 \u1082 \u1086 \u1083 \u1099 </span></td></tr>\
-                                    <tr class="step-row hidden-row"><td><span class="tz-label uppercase tracking-widest">\uc0\u1060 \u1091 \u1085 \u1082 \u1094 \u1080 \u1080 </span></td><td><span class="tz-desc">\u1063 \u1090 \u1086  \u1091 \u1084 \u1077 \u1077 \u1090 ? (\u1084 \u1072 \u1082 \u1089 . 5)</span></td><td><span class="tz-example">\u1055 \u1086 \u1096 \u1072 \u1075 \u1086 \u1074 \u1099 \u1081  \u1089 \u1094 \u1077 \u1085 \u1072 \u1088 \u1080 \u1081  + \u1087 \u1088 \u1086 \u1075 \u1088 \u1077 \u1089 \u1089 </span></td></tr>\
-                                    <tr class="step-row hidden-row"><td><span class="tz-label uppercase tracking-widest">\uc0\u1054 \u1075 \u1088 \u1072 \u1085 \u1080 \u1095 \u1077 \u1085 \u1080 \u1103 </span></td><td><span class="tz-desc">\u1063 \u1090 \u1086  \u1053 \u1045  \u1076 \u1077 \u1083 \u1072 \u1077 \u1090 ?</span></td><td><span class="tz-example">\u1041 \u1077 \u1079  \u1084 \u1091 \u1083 \u1100 \u1090 \u1080 \u1103 \u1079 \u1099 \u1095 \u1085 \u1086 \u1089 \u1090 \u1080 </span></td></tr>\
-                                    <tr class="step-row hidden-row"><td><span class="tz-label uppercase tracking-widest">\uc0\u1057 \u1094 \u1077 \u1085 \u1072 \u1088 \u1080 \u1081 </span></td><td><span class="tz-desc">\u1055 \u1091 \u1090 \u1100  \u1086 \u1090  \u1074 \u1093 \u1086 \u1076 \u1072  \u1076 \u1086  \u1088 \u1077 \u1079 \u1091 \u1083 \u1100 \u1090 \u1072 \u1090 \u1072 </span></td><td><span class="tz-example">\u1069 \u1082 \u1088 \u1072 \u1085  1, 2, 3</span></td></tr>\
-                                    <tr class="step-row hidden-row"><td><span class="tz-label uppercase tracking-widest">\uc0\u1050 \u1086 \u1085 \u1090 \u1077 \u1085 \u1090 </span></td><td><span class="tz-desc">\u1058 \u1077 \u1082 \u1089 \u1090 \u1099  \u1080 \u1085 \u1090 \u1077 \u1088 \u1092 \u1077 \u1081 \u1089 \u1072 </span></td><td><span class="tz-example">\u1063 \u1090 \u1086  \u1085 \u1072  \u1101 \u1082 \u1088 \u1072 \u1085 \u1072 \u1093 </span></td></tr>\
-                                    <tr class="step-row hidden-row"><td><span class="tz-label uppercase tracking-widest">\uc0\u1057 \u1090 \u1077 \u1082 </span></td><td><span class="tz-desc">\u1043 \u1076 \u1077  \u1078 \u1080 \u1074 \u1105 \u1090  \u1080  \u1082 \u1072 \u1082  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072 \u1077 \u1090 </span></td><td><span class="tz-example">HTML/CSS \u1074  Tilda</span></td></tr>\
-                                </tbody>\
-                            </table>\
-                        </div>\
-                    </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  14: \u1055 \u1056 \u1054 \u1052 \u1055 \u1058  \u1058 \u1047 \
-            \{ \
-                id: 14, type: 'info', \
-                content: `\
-                    <div class="flex flex-col items-center justify-center h-full w-full">\
-                        <h2 class="orbitron gradient-text text-[4rem] mb-12 text-center uppercase font-black tracking-widest">\uc0\u1055 \u1056 \u1054 \u1052 \u1055 \u1058  \u1044 \u1051 \u1071  \u1058 \u1047 </h2>\
-                        <div class="code-block w-full max-w-6xl shadow-xl leading-relaxed text-2xl font-bold italic">\
-                            \uc0\u1058 \u1099  \'97 \u1086 \u1087 \u1099 \u1090 \u1085 \u1099 \u1081  \u1087 \u1088 \u1086 \u1076 \u1072 \u1082 \u1090 -\u1084 \u1077 \u1085 \u1077 \u1076 \u1078 \u1077 \u1088 . \u1047 \u1072 \u1076 \u1072 \u1095 \u1072  \'96 \u1089 \u1086 \u1079 \u1076 \u1072 \u1090 \u1100  \u1058 \u1047  \u1076 \u1083 \u1103  \u1101 \u1090 \u1086 \u1075 \u1086  \u1087 \u1088 \u1086 \u1076 \u1091 \u1082 \u1090 \u1072  [\u1092 \u1086 \u1088 \u1084 \u1091 \u1083 \u1072  \u1080 \u1076 \u1077 \u1080 ]. <br><br>\
-                            \uc0\u1057 \u1086 \u1079 \u1076 \u1072 \u1081  \u1089 \u1090 \u1088 \u1091 \u1082 \u1090 \u1091 \u1088 \u1080 \u1088 \u1086 \u1074 \u1072 \u1085 \u1085 \u1099 \u1081  \u1058 \u1047  \u1089  \u1088 \u1072 \u1079 \u1076 \u1077 \u1083 \u1072 \u1084 \u1080 : \u1094 \u1077 \u1083 \u1100 , \u1087 \u1086 \u1083 \u1100 \u1079 \u1086 \u1074 \u1072 \u1090 \u1077 \u1083 \u1100 , \u1092 \u1091 \u1085 \u1082 \u1094 \u1080 \u1080 , \u1086 \u1075 \u1088 \u1072 \u1085 \u1080 \u1095 \u1077 \u1085 \u1080 \u1103 , \u1089 \u1094 \u1077 \u1085 \u1072 \u1088 \u1080 \u1081 , \u1090 \u1077 \u1082 \u1089 \u1090 \u1099 , \u1089 \u1090 \u1077 \u1082 . <br><br>\
-                            <span class="text-neon-pink uppercase font-black">[ \uc0\u1042 \u1067 \u1041 \u1045 \u1056 \u1048  \u1040 \u1050 \u1058 \u1059 \u1040 \u1051 \u1068 \u1053 \u1054 \u1045 : ]</span><br>\
-                            \'95 \uc0\u1069 \u1090 \u1086 \u1090  \u1087 \u1088 \u1086 \u1076 \u1091 \u1082 \u1090  \u1073 \u1091 \u1076 \u1077 \u1090  \u1074 \u1089 \u1090 \u1088 \u1086 \u1077 \u1085  \u1095 \u1077 \u1088 \u1077 \u1079  html-\u1073 \u1083 \u1086 \u1082  \u1074  \u1058 \u1080 \u1083 \u1100 \u1076 \u1072 .<br>\
-                            \'95 \uc0\u1069 \u1090 \u1086 \u1090  \u1087 \u1088 \u1086 \u1076 \u1091 \u1082 \u1090  \u1073 \u1091 \u1076 \u1077 \u1090  \u1076 \u1086 \u1073 \u1072 \u1074 \u1083 \u1077 \u1085  \u1074  \u1086 \u1085 \u1083 \u1072 \u1081 \u1085 -\u1082 \u1091 \u1088 \u1089 ...\
-                        </div>\
-                        <p class="mt-12 text-2xl opacity-60 italic font-black uppercase tracking-widest text-center">\uc0\u55356 \u57241 \u65039  \u1057 \u1086 \u1074 \u1077 \u1090 : \u1085 \u1072 \u1075 \u1086 \u1074 \u1086 \u1088 \u1080 \u1090 \u1077  \u1086 \u1090 \u1074 \u1077 \u1090 \u1099  \u1075 \u1086 \u1083 \u1086 \u1089 \u1086 \u1084 </p>\
-                    </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  15: \u1044 \u1045 \u1052 \u1054 \
-            \{ id: 15, type: '\uc0\u1044 \u1045 \u1052 \u1054  \u55356 \u57260 ', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h2 class="unbounded gradient-text text-[16rem] tracking-tighter uppercase font-black leading-none">\u1044 \u1045 \u1052 \u1054 </h2><p class="orbitron opacity-40 text-5xl mt-12 tracking-[0.5em] font-black uppercase">\u1055 \u1054 \u1050 \u1040 \u1047 \u1067 \u1042 \u1040 \u1070  \u1069 \u1050 \u1056 \u1040 \u1053 </p></div>` \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  16: \u1051 \u1040 \u1049 \u1060 \u1061 \u1040 \u1050 \u1048  \u1058 \u1047 \
-            \{ \
-                id: 16, type: 'info', \
-                content: `\
-                    <div class="flex flex-col items-center justify-center h-full w-full">\
-                        <h2 class="orbitron gradient-text text-[4.5rem] mb-12 uppercase font-black text-center tracking-widest leading-none">\uc0\u1051 \u1040 \u1049 \u1060 \u1061 \u1040 \u1050 \u1048  \u1044 \u1051 \u1071  \u1058 \u1047 </h2>\
-                        <div class="grid grid-cols-3 gap-10 w-full max-w-7xl">\
-                            <div class="glass-card p-12 flex flex-col items-center text-center gap-8 border-cyan-500/20">\
-                                <span class="text-8xl">\uc0\u55357 \u56510 </span>\
-                                <p class="text-2xl uppercase font-black text-neon-cyan tracking-widest">Markdown</p>\
-                                <p class="text-xl opacity-80 leading-relaxed font-bold">\uc0\u1048 \u1076 \u1077 \u1072 \u1083 \u1100 \u1085 \u1099 \u1081  \u1087 \u1077 \u1088 \u1077 \u1085 \u1086 \u1089  \u1074  \u1082 \u1086 \u1076 </p>\
-                            </div>\
-                            <div class="glass-card p-12 flex flex-col items-center text-center gap-8 border-purple-500/20">\
-                                <span class="text-8xl">\uc0\u55357 \u56541 </span>\
-                                <p class="text-2xl uppercase font-black text-neon-purple tracking-widest">\uc0\u1042 \u1080 \u1096 \u1083 \u1080 \u1089 \u1090 </p>\
-                                <p class="text-xl opacity-80 leading-relaxed font-bold">\uc0\u1060 \u1091 \u1085 \u1082 \u1094 \u1080 \u1080  \u1085 \u1072  \u1073 \u1091 \u1076 \u1091 \u1097 \u1077 \u1077 </p>\
-                            </div>\
-                            <div class="glass-card p-12 flex flex-col items-center text-center gap-8 border-cyan-500/20">\
-                                <span class="text-8xl">\uc0\u55356 \u57261 </span>\
-                                <p class="text-2xl uppercase font-black text-neon-cyan tracking-widest">\uc0\u1050 \u1086 \u1085 \u1090 \u1077 \u1082 \u1089 \u1090 </p>\
-                                <p class="text-xl opacity-80 leading-relaxed font-bold">\uc0\u1055 \u1077 \u1088 \u1089 \u1086 \u1085 \u1099  \u1080  Tone of Voice</p>\
-                            </div>\
-                            <div class="glass-card p-12 flex flex-col items-center text-center gap-8 border-purple-500/20">\
-                                <span class="text-8xl">\uc0\u55358 \u56800 </span>\
-                                <p class="text-2xl uppercase font-black text-neon-purple tracking-widest">Thinking</p>\
-                                <p class="text-xl opacity-80 leading-relaxed font-bold">\uc0\u1056 \u1077 \u1089 \u1091 \u1088 \u1089  \u1076 \u1083 \u1103  \u1089 \u1083 \u1086 \u1078 \u1085 \u1086 \u1081  \u1083 \u1086 \u1075 \u1080 \u1082 \u1080 </p>\
-                            </div>\
-                            <div class="glass-card p-12 flex flex-col items-center text-center gap-8 border-cyan-500/20">\
-                                <span class="text-8xl">\uc0\u55357 \u56826 \u65039 </span>\
-                                <p class="text-2xl uppercase font-black text-neon-cyan tracking-widest">User Flow</p>\
-                                <p class="text-xl opacity-80 leading-relaxed font-bold">\uc0\u1053 \u1072 \u1075 \u1083 \u1103 \u1076 \u1085 \u1099 \u1081  \u1087 \u1091 \u1090 \u1100  \u1082 \u1083 \u1080 \u1077 \u1085 \u1090 \u1072 </p>\
-                            </div>\
-                            <div class="glass-card p-12 flex flex-col items-center text-center gap-8 border-purple-500/20">\
-                                <span class="text-8xl">\uc0\u55356 \u57256 </span>\
-                                <p class="text-2xl uppercase font-black text-neon-purple tracking-widest">\uc0\u1069 \u1089 \u1082 \u1080 \u1079 \u1099 </p>\
-                                <p class="text-xl opacity-80 leading-relaxed font-bold">\uc0\u1047 \u1072 \u1075 \u1088 \u1091 \u1079 \u1080 \u1090 \u1077  \u1074 \u1072 \u1096 \u1080  \u1089 \u1090 \u1086 \u1088 \u1080 \u1073 \u1086 \u1088 \u1076 \u1099 </p>\
-                            </div>\
-                        </div>\
-                    </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  17: \u1055 \u1056 \u1040 \u1050 \u1058 \u1048 \u1050 \u1040  \u1058 \u1047 \
-            \{ \
-                id: 17, type: '\uc0\u1055 \u1056 \u1040 \u1050 \u1058 \u1048 \u1050 \u1040  \u9997  20 \u1052 \u1048 \u1053 ', \
-                content: `\
-                    <div class="flex flex-col items-center justify-center h-full w-full">\
-                        <h2 class="orbitron text-green-500 text-[5.5rem] mb-12 uppercase font-black tracking-widest leading-none">\uc0\u1057 \u1054 \u1047 \u1044 \u1040 \u1049  \u1057 \u1042 \u1054 \u1025  \u1058 \u1047 </h2>\
-                        <div class="glass-card p-12 w-full max-w-6xl border-green-500/30 shadow-[0_0_50px_rgba(15,92,46,0.2)]">\
-                            <div class="space-y-6">\
-                                <div class="practice-step"><div class="step-num">1</div><p class="text-3xl font-black uppercase tracking-widest text-white/90">\uc0\u1054 \u1090 \u1082 \u1088 \u1086 \u1081  \u1085 \u1077 \u1081 \u1088 \u1086 \u1089 \u1077 \u1090 \u1100 </p></div>\
-                                <div class="practice-step"><div class="step-num">2</div><p class="text-3xl font-black uppercase tracking-widest text-white/90">\uc0\u1042 \u1089 \u1090 \u1072 \u1074 \u1100  \u1087 \u1088 \u1086 \u1084 \u1087 \u1090  \u1058 \u1047 </p></div>\
-                                <div class="practice-step"><div class="step-num">3</div><p class="text-3xl font-black uppercase tracking-widest text-white/90">\uc0\u1047 \u1072 \u1084 \u1077 \u1085 \u1080  <span class="text-neon-cyan font-black">[\u1048 \u1044 \u1045 \u1071 ]</span></p></div>\
-                                <div class="practice-step"><div class="step-num">4</div><p class="text-3xl font-black uppercase tracking-widest text-white/90">\uc0\u1055 \u1088 \u1086 \u1095 \u1080 \u1090 \u1072 \u1081  \u1074 \u1077 \u1088 \u1089 \u1080 \u1102 </p></div>\
-                                <div class="practice-step"><div class="step-num">5</div><p class="text-3xl font-black uppercase tracking-widest text-white/90">\uc0\u1048 \u1089 \u1087 \u1088 \u1072 \u1074 \u1100  \u1086 \u1096 \u1080 \u1073 \u1082 \u1080 </p></div>\
-                                <div class="practice-step"><div class="step-num">6</div><p class="text-3xl font-black text-green-400 uppercase tracking-widest">\uc0\u1055 \u1083 \u1102 \u1089  \u1074  \u1095 \u1072 \u1090 </p></div>\
-                            </div>\
-                        </div>\
-                    </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  18: \u1041 \u1051 \u1054 \u1050  3\
-            \{ id: 18, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">03</h3><p class="montserrat text-neon-pink tracking-widest mb-4 uppercase font-black text-2xl uppercase font-black">\uc0\u1041 \u1051 \u1054 \u1050  3</p><h2 class="unbounded gradient-text text-[8rem]">\u1055 \u1056 \u1054 \u1058 \u1054 \u1058 \u1048 \u1055 </h2></div>` \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  19: UX VS UI\
-            \{ \
-                id: 19, type: 'info', \
-                content: `\
-                    <div class="flex flex-col items-center justify-center h-full w-full">\
-                        <h2 class="orbitron gradient-text text-[4.5rem] mb-16 text-center uppercase font-black tracking-widest">UX VS UI \'97 \uc0\u1042  \u1063 \u1045 \u1052  \u1056 \u1040 \u1047 \u1053 \u1048 \u1062 \u1040 ?</h2>\
-                        <div class="grid grid-cols-2 gap-16 w-full max-w-7xl">\
-                            <div class="glass-card p-14 border-cyan-500/30 flex flex-col gap-10">\
-                                <div><h3 class="orbitron text-neon-cyan text-5xl mb-8 font-black uppercase tracking-widest">\uc0\u55357 \u56826 \u65039  UX \'97 \u1055 \u1059 \u1058 \u1068 </h3><p class="text-2xl font-bold mb-8 uppercase leading-tight text-white/90">\u1063 \u1090 \u1086  \u1076 \u1077 \u1083 \u1072 \u1077 \u1090  \u1087 \u1086 \u1083 \u1100 \u1079 \u1086 \u1074 \u1072 \u1090 \u1077 \u1083 \u1100 ? \u1050 \u1072 \u1082  \u1076 \u1086 \u1089 \u1090 \u1080 \u1075 \u1072 \u1077 \u1090  \u1094 \u1077 \u1083 \u1080 ?</p><p class="text-xl opacity-75 leading-relaxed">\u1044 \u1091 \u1084 \u1072 \u1077 \u1084  \u1086  \u1089 \u1090 \u1088 \u1091 \u1082 \u1090 \u1091 \u1088 \u1077 , \u1087 \u1077 \u1088 \u1077 \u1093 \u1086 \u1076 \u1072 \u1093  \u1080  \u1083 \u1086 \u1075 \u1080 \u1082 \u1077  \u1076 \u1077 \u1081 \u1089 \u1090 \u1074 \u1080 \u1081 .</p></div>\
-                                <div class="bg-cyan-500/5 border border-cyan-500/20 p-8 rounded-2xl italic opacity-70 text-2xl font-black tracking-widest uppercase">\uc0\u1055 \u1088 \u1080 \u1084 \u1077 \u1088 : \u1082 \u1085 \u1086 \u1087 \u1082 \u1072  \'ab\u1055 \u1088 \u1086 \u1081 \u1090 \u1080  \u1082 \u1074 \u1080 \u1079 \'bb \u8594  \u1074 \u1086 \u1087 \u1088 \u1086 \u1089  1 \u8594  \u1088 \u1077 \u1079 \u1091 \u1083 \u1100 \u1090 \u1072 \u1090 </div>\
-                            </div>\
-                            <div class="glass-card p-14 border-pink-500/30 flex flex-col gap-10">\
-                                <div><h3 class="orbitron text-neon-pink text-5xl mb-8 font-black uppercase tracking-widest">\uc0\u55356 \u57256  UI \'97 \u1054 \u1041 \u1054 \u1051 \u1054 \u1063 \u1050 \u1040 </h3><p class="text-2xl font-bold mb-8 uppercase leading-tight text-white/90">\u1050 \u1072 \u1082  \u1101 \u1090 \u1086  \u1074 \u1099 \u1075 \u1083 \u1103 \u1076 \u1080 \u1090 ? \u1055 \u1086 \u1084 \u1086 \u1075 \u1072 \u1077 \u1090  \u1083 \u1080  \u1074 \u1080 \u1079 \u1091 \u1072 \u1083 ?</p><p class="text-xl opacity-75 leading-relaxed">\u1057 \u1090 \u1080 \u1083 \u1100 , \u1094 \u1074 \u1077 \u1090 \u1072 , \u1096 \u1088 \u1080 \u1092 \u1090 \u1099 , \u1080 \u1082 \u1086 \u1085 \u1082 \u1080 , \u1086 \u1090 \u1089 \u1090 \u1091 \u1087 \u1099 .</p></div>\
-                                <div class="bg-pink-500/5 border border-pink-500/20 p-8 rounded-2xl italic opacity-70 text-2xl font-black tracking-widest uppercase">\uc0\u1055 \u1088 \u1080 \u1084 \u1077 \u1088 : \u1092 \u1086 \u1085  #0B0E14, \u1089 \u1074 \u1077 \u1095 \u1077 \u1085 \u1080 \u1077 , \u1096 \u1088 \u1080 \u1092 \u1090 \u1099  Unbounded</div>\
-                            </div>\
-                        </div>\
-                    </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  20: \u1055 \u1056 \u1054 \u1052 \u1055 \u1058  \u1055 \u1056 \u1054 \u1058 \u1054 \u1058 \u1048 \u1055 \u1040 \
-            \{ \
-                id: 20, type: 'info', \
-                content: `\
-                    <div class="flex flex-col items-center justify-center h-full w-full">\
-                        <h2 class="orbitron gradient-text text-[4.5rem] mb-12 text-center uppercase font-black tracking-widest">\uc0\u1055 \u1056 \u1054 \u1052 \u1055 \u1058  \u1055 \u1056 \u1054 \u1058 \u1054 \u1058 \u1048 \u1055 \u1040 </h2>\
-                        <div class="code-block w-full max-w-6xl shadow-2xl text-2xl leading-relaxed font-bold italic">\
-                            <p class="mb-10 font-black uppercase tracking-widest not-italic">\uc0\u1056 \u1086 \u1083 \u1100 : \u1058 \u1099  \u1092 \u1088 \u1086 \u1085 \u1090 \u1077 \u1085 \u1076  \u1088 \u1072 \u1079 \u1088 \u1072 \u1073 \u1086 \u1090 \u1095 \u1080 \u1082  (Apple \u1089 \u1090 \u1080 \u1083 \u1100 ).</p>\
-                            <p class="mb-10">\uc0\u1050 \u1086 \u1085 \u1090 \u1077 \u1082 \u1089 \u1090 : \u1057 \u1086 \u1079 \u1076 \u1072 \u1081  \u1080 \u1085 \u1090 \u1077 \u1088 \u1072 \u1082 \u1090 \u1080 \u1074 \u1085 \u1099 \u1081  \u1087 \u1088 \u1086 \u1090 \u1086 \u1090 \u1080 \u1087  \u1087 \u1088 \u1086 \u1076 \u1091 \u1082 \u1090 \u1072  [\u1086 \u1087 \u1080 \u1089 \u1072 \u1085 \u1080 \u1077 ].</p>\
-                            <p class="text-3xl text-neon-cyan font-black mb-8 uppercase tracking-widest not-italic">\uc0\u1048 \u1057 \u1055 \u1054 \u1051 \u1068 \u1047 \u1059 \u1049  \u1069 \u1058 \u1054 \u1058  \u1058 \u1047 :</p>\
-                            <ul class="ml-16 list-disc text-2xl opacity-90 space-y-6 font-bold">\
-                                <li>\uc0\u1044 \u1086 \u1073 \u1072 \u1074 \u1100  \u1090 \u1077 \u1082 \u1089 \u1090  \u1089 \u1074 \u1086 \u1077 \u1075 \u1086  \u1058 \u1047 </li>\
-                                <li>\uc0\u1048 \u1089 \u1087 \u1086 \u1083 \u1100 \u1079 \u1091 \u1081  HTML, CSS, JavaScript</li>\
-                                <li>\uc0\u1056 \u1077 \u1092 \u1077 \u1088 \u1077 \u1085 \u1089  \u1076 \u1083 \u1103  \u1076 \u1080 \u1079 \u1072 \u1081 \u1085 \u1072  + \u1064 \u1088 \u1080 \u1092 \u1090 </li>\
-                            </ul>\
-                        </div>\
-                    </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  21: \u1044 \u1045 \u1052 \u1054  \u1055 \u1056 \u1054 \u1058 \u1054 \u1058 \u1048 \u1055 \
-            \{ id: 21, type: '\uc0\u1044 \u1045 \u1052 \u1054  \u55356 \u57260 ', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h2 class="unbounded gradient-text text-[18rem] tracking-tighter uppercase font-black leading-none">\u1044 \u1045 \u1052 \u1054 </h2><p class="orbitron opacity-40 text-5xl mt-12 tracking-[0.6em] font-black uppercase">\u1047 \u1040 \u1055 \u1059 \u1057 \u1050  \u1050 \u1054 \u1044 \u1040 </p></div>` \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  22: \u1055 \u1056 \u1040 \u1050 \u1058 \u1048 \u1050 \u1040  \u1047 \u1040 \u1055 \u1059 \u1057 \u1050 \
-            \{ \
-                id: 22, type: '\uc0\u1055 \u1056 \u1040 \u1050 \u1058 \u1048 \u1050 \u1040  \u9997  20 \u1052 \u1048 \u1053 ', \
-                content: `\
-                    <div class="flex flex-col items-center justify-center h-full w-full">\
-                        <h2 class="orbitron text-green-500 text-[6rem] mb-16 uppercase font-black tracking-widest text-center leading-none">\uc0\u1047 \u1040 \u1055 \u1059 \u1057 \u1058 \u1048  \u1055 \u1056 \u1054 \u1058 \u1054 \u1058 \u1048 \u1055 </h2>\
-                        <div class="glass-card p-12 w-full max-w-6xl border-green-500/30 shadow-[0_0_50px_rgba(15,92,46,0.2)]">\
-                            <div class="space-y-10">\
-                                <div class="practice-step"><div class="step-num">1</div><p class="text-3xl font-black uppercase tracking-widest text-white/90">\uc0\u1057 \u1086 \u1089 \u1090 \u1072 \u1074 \u1100  \u1087 \u1088 \u1086 \u1084 \u1087 \u1090  \u1087 \u1088 \u1086 \u1090 \u1086 \u1090 \u1080 \u1087 \u1072 </p></div>\
-                                <div class="practice-step"><div class="step-num">2</div><p class="text-3xl font-black uppercase tracking-widest text-white/90">\uc0\u1054 \u1090 \u1087 \u1088 \u1072 \u1074 \u1100  \u1074  \u1090 \u1077 \u1082 \u1089 \u1090 \u1086 \u1074 \u1091 \u1102  AI</p></div>\
-                                <div class="practice-step"><div class="step-num">3</div><div><p class="text-3xl font-black mb-6 uppercase text-neon-cyan tracking-widest">\uc0\u1054 \u1094 \u1077 \u1085 \u1080  \u1088 \u1077 \u1079 \u1091 \u1083 \u1100 \u1090 \u1072 \u1090 :</p><ul class="text-2xl opacity-80 list-disc ml-14 space-y-4 italic font-bold"><li>\u1057 \u1086 \u1086 \u1090 \u1074 \u1077 \u1090 \u1089 \u1090 \u1074 \u1080 \u1077  \u1058 \u1047 ?</li><li>\u1058 \u1086 \u1095 \u1085 \u1086 \u1089 \u1090 \u1100  UX \u1080  UI?</li><li>\u1050 \u1086 \u1088 \u1088 \u1077 \u1082 \u1090 \u1085 \u1086 \u1089 \u1090 \u1100  \u1090 \u1077 \u1082 \u1089 \u1090 \u1086 \u1074 ?</li></ul></div></div>\
-                            </div>\
-                        </div>\
-                    </div>` \
-            \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  23: \u1054 \u1062 \u1045 \u1053 \u1050 \u1040 \
-            \{ id: 23, type: '\uc0\u1042 \u1054 \u1055 \u1056 \u1054 \u1057  \u10067 ', content: `<div class="text-center h-full flex flex-col justify-center"><h2 class="orbitron gradient-text text-[4.5rem] mb-20 uppercase font-black tracking-widest uppercase">\u1054 \u1062 \u1045 \u1053 \u1048  \u1056 \u1045 \u1047 \u1059 \u1051 \u1068 \u1058 \u1040 \u1058  (1-10)</h2><div class="flex justify-center gap-16"><div class="glass-card p-16 w-64 border-orange-500/30 text-4xl font-black uppercase tracking-widest">\u1058 \u1047 ?</div><div class="glass-card p-16 w-64 border-orange-500/30 text-4xl font-black uppercase tracking-widest">UI?</div><div class="glass-card p-16 w-64 border-orange-500/30 text-4xl font-black uppercase tracking-widest">\u1058 \u1045 \u1050 \u1057 \u1058 ?</div></div></div>` \},\
-            // \uc0\u1057 \u1051 \u1040 \u1049 \u1044  24: \u1051 \u1040 \u1049 \u1060 \u1061 \u1040 \u1050 \u1048  \u1050 \u1054 \u1044 \u1040 \
-            \{ \
-                id: 24, type: 'info', \
-                content: `\
-                    <div class="flex flex-col items-center justify-center h-full w-full">\
-                        <h2 class="orbitron gradient-text text-[4.5rem] mb-12 uppercase font-black tracking-widest uppercase font-black leading-none">\uc0\u1051 \u1040 \u1049 \u1060 \u1061 \u1040 \u1050 \u1048  \u1044 \u1051 \u1071  \u1050 \u1054 \u1044 \u1040 </h2>\
-                        <div class="grid grid-cols-1 gap-12 w-full max-w-6xl mx-auto">\
-                            <div class="glass-card p-10 border-cyan-500/30 flex items-center gap-14">\
-                                <span class="text-8xl shrink-0">\uc0\u55357 \u56481 </span>\
-                                <div><p class="text-2xl uppercase font-black text-neon-cyan mb-4 tracking-widest uppercase">\uc0\u1057 \u1090 \u1080 \u1083 \u1100 </p><p class="text-2xl opacity-90 italic font-black leading-relaxed uppercase">\'ab\u1055 \u1088 \u1080 \u1076 \u1091 \u1084 \u1072 \u1081  5 \u1074 \u1072 \u1088 \u1080 \u1072 \u1085 \u1090 \u1086 \u1074  \u1094 \u1074 \u1077 \u1090 \u1086 \u1074 \u1086 \u1081  \u1087 \u1072 \u1083 \u1080 \u1090 \u1088 \u1099  \u1074  \u1089 \u1090 \u1080 \u1083 \u1077  Apple\'bb</p></div>\
-                            </div>\
-                            <div class="glass-card p-10 border-purple-500/30 flex items-center gap-14">\
-                                <span class="text-8xl shrink-0">\uc0\u55357 \u56481 </span>\
-                                <div><p class="text-2xl uppercase font-black text-neon-purple mb-4 tracking-widest uppercase">\uc0\u1050 \u1088 \u1080 \u1090 \u1080 \u1082 \u1072 </p><p class="text-2xl opacity-90 italic font-black leading-relaxed uppercase">\u1057 \u1082 \u1080 \u1085 \u1100 \u1090 \u1077  \u1089 \u1082 \u1088 \u1080 \u1085 \u1096 \u1086 \u1090 : \'ab\u1063 \u1090 \u1086  \u1079 \u1076 \u1077 \u1089 \u1100  \u1085 \u1077  \u1088 \u1072 \u1073 \u1086 \u1090 \u1072 \u1077 \u1090  \u1074  UX?\'bb</p></div>\
-                            </div>\
-                            <div class="glass-card p-10 border-cyan-500/30 flex items-center gap-14">\
-                                <span class="text-8xl shrink-0">\uc0\u55357 \u56481 </span>\
-                                <div><p class="text-2xl uppercase font-black text-neon-cyan mb-4 tracking-widest uppercase">\uc0\u1052 \u1091 \u1083 \u1100 \u1090 \u1080 -AI</p><p class="text-2xl opacity-90 italic font-black leading-relaxed uppercase">\u1057 \u1088 \u1072 \u1074 \u1085 \u1080 \u1090 \u1077  \u1088 \u1077 \u1079 \u1091 \u1083 \u1100 \u1090 \u1072 \u1090 \u1099  Claude \u1080  Gemini, \u1074 \u1086 \u1079 \u1100 \u1084 \u1080 \u1090 \u1077  \u1083 \u1091 \u1095 \u1096 \u1077 \u1077 </p></div>\
-                            </div>\
-                        </div>\
-                    </div>` \
-            \},\
-            \
-            // \uc0\u1041 \u1051 \u1054 \u1050  4\
-            \{ id: 25, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[240px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">04</h3><p class="montserrat text-neon-purple tracking-widest mb-4 uppercase font-black text-2xl font-black">\uc0\u1041 \u1051 \u1054 \u1050  4</p><h2 class="unbounded gradient-text text-[8rem] uppercase font-black leading-tight">\u1048 \u1058 \u1045 \u1056 \u1040 \u1062 \u1048 \u1048 </h2></div>` \},\
-            \{ id: 26, type: 'info', content: `<div class="flex flex-col items-center justify-center h-full w-full"><h2 class="orbitron text-red-500 text-6xl mb-16 uppercase font-black tracking-widest uppercase font-black">GITHUB</h2><div class="glass-card p-24 text-center border-red-500/30 shadow-[0_0_100px_rgba(255,0,0,0.2)] text-6xl font-black uppercase leading-tight tracking-tighter">GitHub \'97 \uc0\u1074 \u1072 \u1096 \u1072  \u1089 \u1090 \u1088 \u1072 \u1093 \u1086 \u1074 \u1082 \u1072 <br>\u1080  \u1080 \u1089 \u1090 \u1086 \u1088 \u1080 \u1103  \u1074 \u1077 \u1088 \u1089 \u1080 \u1081 </div></div>` \},\
-            \{ \
-                id: 27, type: 'info', \
-                content: `\
-                    <div class="flex flex-col items-center justify-center h-full w-full">\
-                        <h2 class="orbitron gradient-text text-[3.5rem] mb-16 uppercase font-black text-center tracking-widest leading-none uppercase font-black">\uc0\u1050 \u1040 \u1050  \u1055 \u1056 \u1040 \u1042 \u1048 \u1058 \u1068  \u1055 \u1056 \u1054 \u1058 \u1054 \u1058 \u1048 \u1055 ?</h2>\
-                        <div class="grid grid-cols-2 gap-10 max-w-7xl w-full mx-auto text-left">\
-                            <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-cyan block mb-6 text-3xl uppercase tracking-widest">Step-by-step</strong> \uc0\u1054 \u1076 \u1085 \u1086  \u1080 \u1079 \u1084 \u1077 \u1085 \u1077 \u1085 \u1080 \u1077  \u1079 \u1072  \u1088 \u1072 \u1079 .</div>\
-                            <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-pink block mb-6 text-3xl uppercase tracking-widest">\uc0\u1045 \u1089 \u1083 \u1080  \u1089 \u1083 \u1086 \u1084 \u1072 \u1083 \u1086 \u1089 \u1100 </strong> \u1054 \u1087 \u1080 \u1096 \u1080  \u1086 \u1096 \u1080 \u1073 \u1082 \u1091  \u1090 \u1086 \u1095 \u1085 \u1086  + \u1089 \u1082 \u1088 \u1080 \u1085 .</div>\
-                            <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-cyan block mb-6 text-3xl uppercase tracking-widest">\uc0\u1053 \u1077  \u1090 \u1086 </strong> \u1053 \u1072 \u1087 \u1080 \u1096 \u1080 : \'ab\u1052 \u1085 \u1077  \u1085 \u1091 \u1078 \u1085 \u1086 , \u1095 \u1090 \u1086 \u1073 \u1099 ...\'bb</div>\
-                            <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-pink block mb-6 text-3xl uppercase tracking-widest">\uc0\u1058 \u1086 \u1083 \u1100 \u1082 \u1086  UI</strong> \u1053 \u1077  \u1090 \u1088 \u1086 \u1075 \u1072 \u1081  \u1083 \u1086 \u1075 \u1080 \u1082 \u1091  \u1080  \u1092 \u1091 \u1085 \u1082 \u1094 \u1080 \u1080 .</div>\
-                            <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-cyan block mb-6 text-3xl uppercase tracking-widest">\uc0\u1044 \u1086 \u1073 \u1072 \u1074 \u1083 \u1077 \u1085 \u1080 \u1077 </strong> \u1044 \u1086 \u1073 \u1072 \u1074 \u1100  [\u1101 \u1083 \u1077 \u1084 \u1077 \u1085 \u1090 ], \u1086 \u1089 \u1090 \u1072 \u1083 \u1100 \u1085 \u1086 \u1077  \u1089 \u1090 \u1086 \u1087 .</div>\
-                            <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-pink block mb-6 text-3xl uppercase tracking-widest">\uc0\u1058 \u1077 \u1082 \u1089 \u1090 \u1099 </strong> \u1052 \u1077 \u1085 \u1103 \u1081 \u1090 \u1077  \u1095 \u1077 \u1088 \u1077 \u1079  \u1087 \u1086 \u1080 \u1089 \u1082  \u1074  \u1082 \u1086 \u1076 \u1077 .</div>\
-                        </div>\
-                    </div>` \
-            \},\
-            \{ id: 28, type: '\uc0\u1055 \u1056 \u1040 \u1050 \u1058 \u1048 \u1050 \u1040  \u9997  10 \u1052 \u1048 \u1053 ', content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron text-green-500 text-[6rem] mb-12 uppercase font-black uppercase tracking-widest font-black uppercase leading-none">P2P \u1054 \u1041 \u1047 \u1054 \u1056 </h2><p class="text-center opacity-75 italic text-6xl font-bold tracking-widest uppercase">\u1057 \u1084 \u1086 \u1090 \u1088 \u1080 \u1084  \u1088 \u1072 \u1073 \u1086 \u1090 \u1099  \u1082 \u1086 \u1083 \u1083 \u1077 \u1075 </p></div>` \},\
-            \{ id: 29, type: 'info', content: `<div class="flex flex-col items-center justify-center h-full w-full"><div class="glass-card p-32 border-neon-cyan text-center shadow-2xl shadow-cyan-900/20"><p class="orbitron text-neon-cyan text-3xl mb-12 font-black uppercase tracking-widest tracking-[0.5em] uppercase font-black uppercase font-black">\uc0\u55356 \u57312  \u1044 \u1054 \u1052 \u1040 \u1064 \u1053 \u1045 \u1045  \u1047 \u1040 \u1044 \u1040 \u1053 \u1048 \u1045 </p><h2 class="unbounded text-7xl mb-12 tracking-tighter uppercase font-black leading-none">\u1044 \u1054 \u1042 \u1045 \u1057 \u1058 \u1048  \u1044 \u1054  MVP</h2><p class="opacity-70 italic uppercase text-3xl font-bold tracking-widest text-center font-bold">\u1053 \u1072 \u1087 \u1086 \u1083 \u1085 \u1080  \u1082 \u1086 \u1085 \u1090 \u1077 \u1085 \u1090 \u1086 \u1084  \u1080  \u1080 \u1089 \u1087 \u1088 \u1072 \u1074 \u1100  UX</p></div></div>` \},\
-            \{ \
-                id: 30, type: 'info', \
-                content: `<div class="flex flex-col items-center justify-center h-full w-full"><h2 class="orbitron gradient-text text-6xl mb-16 uppercase font-black tracking-widest uppercase font-black">\uc0\u1048 \u1058 \u1054 \u1043 \u1048  \u1055 \u1059 \u1058 \u1045 \u1064 \u1045 \u1057 \u1058 \u1042 \u1048 \u1071 </h2><div class="space-y-12 max-w-5xl text-3xl opacity-90 uppercase font-black tracking-widest leading-normal text-center mx-auto font-bold"><p>0. \u1042 \u1072 \u1081 \u1073 \u1082 \u1086 \u1076 \u1080 \u1085 \u1075 : \u1053 \u1086 \u1074 \u1099 \u1081  \u1084 \u1072 \u1081 \u1085 \u1076 \u1089 \u1077 \u1090 </p><p>1. \u1069 \u1090 \u1072 \u1087 \u1099 : \u1054 \u1090  \u1048 \u1076 \u1077 \u1080  \u1082  \u1058 \u1047 </p><p>2. \u1058 \u1047 : \u1048 \u1089 \u1090 \u1086 \u1095 \u1085 \u1080 \u1082  \u1087 \u1088 \u1072 \u1074 \u1076 \u1099 </p><p>3. \u1055 \u1088 \u1086 \u1090 \u1086 \u1090 \u1080 \u1087 : \u1050 \u1086 \u1076  \u1095 \u1077 \u1088 \u1077 \u1079  \u1048 \u1048 </p><p>4. \u1048 \u1090 \u1077 \u1088 \u1072 \u1094 \u1080 \u1080 : \u1058 \u1086 \u1095 \u1077 \u1095 \u1085 \u1099 \u1077  \u1087 \u1088 \u1072 \u1074 \u1082 \u1080 </p></div></div>` \
-            \},\
-            \{ id: 31, type: '\uc0\u1042 \u1054 \u1055 \u1056 \u1054 \u1057  \u10067 ', content: `<div class="text-center flex flex-col items-center justify-center h-full w-full"><h2 class="unbounded gradient-text text-[14rem] mb-12 tracking-tighter leading-none uppercase font-black uppercase font-black">\u1057 \u1055 \u1040 \u1057 \u1048 \u1041 \u1054 ! \u55356 \u57225 </h2><p class="orbitron opacity-40 text-6xl uppercase tracking-[0.5em] font-black uppercase">\u1044 \u1054  \u1042 \u1057 \u1058 \u1056 \u1045 \u1063 \u1048 !</p></div>` \}\
-        ];\
-\
-        let currentIndex = 0;\
-        let currentSubStep = 0;\
-\
-        function render() \{\
-            const root = document.getElementById('slides-root');\
-            root.innerHTML = slidesData.map((s, idx) => `\
-                <div class="slide $\{idx === currentIndex ? 'active' : ''\}" id="slide-$\{idx+1\}" data-type="$\{s.type.includes('info') || s.type === 'title' || s.type === 'chapter' ? '' : s.type\}">\
-                    $\{s.content\}\
-                </div>\
-            `).join('');\
-            updateUI();\
-        \}\
-\
-        function updateUI() \{\
-            const currentSlideData = slidesData[currentIndex];\
-            const slideEl = document.getElementById(`slide-$\{currentIndex+1\}`);\
-            document.getElementById('counter').innerText = `$\{String(currentIndex+1).padStart(2, '0')\}/$\{String(slidesData.length).padStart(2, '0')\}`;\
-            const dots = document.getElementById('dots');\
-            dots.innerHTML = slidesData.map((_, i) => `<div class="dot $\{i === currentIndex ? 'active' : ''\}" onclick="goTo($\{i\})"></div>`).join('');\
-            const badge = document.getElementById('typeBadge');\
-            const typeText = slideEl.getAttribute('data-type');\
-            if (typeText) \{\
-                badge.innerText = typeText;\
-                badge.classList.remove('hidden');\
-                badge.className = 'type-badge montserrat ' + (typeText.includes('\uc0\u1042 \u1054 \u1055 \u1056 \u1054 \u1057 ') ? 'badge-question' : typeText.includes('\u1055 \u1056 \u1040 \u1050 \u1058 \u1048 \u1050 \u1040 ') ? 'badge-practice' : 'badge-demo');\
-            \} else \{ badge.classList.add('hidden'); \}\
-\
-            if (currentSlideData.isSequential) \{\
-                const rows = slideEl.querySelectorAll('.step-row');\
-                rows.forEach((row, index) => \{\
-                    if (index < currentSubStep) \{ row.classList.add('visible-row'); row.classList.remove('hidden-row'); \}\
-                    else \{ row.classList.add('hidden-row'); row.classList.remove('visible-row'); \}\
-                \});\
-            \}\
-        \}\
-\
-        function changeSlide(dir) \{\
-            const currentSlideData = slidesData[currentIndex];\
-            if (dir > 0) \{\
-                if (currentSlideData.isSequential && currentSubStep < currentSlideData.totalSubSteps) \{ currentSubStep++; updateUI(); \}\
-                else if (currentIndex < slidesData.length - 1) \{ currentIndex++; currentSubStep = 0; render(); \}\
-            \} else \{\
-                if (currentSubStep > 0) \{ currentSubStep--; updateUI(); \}\
-                else if (currentIndex > 0) \{ currentIndex--; const prevSlideData = slidesData[currentIndex]; currentSubStep = prevSlideData.isSequential ? prevSlideData.totalSubSteps : 0; render(); \}\
-            \}\
-        \}\
-\
-        function goTo(idx) \{ currentIndex = idx; currentSubStep = 0; render(); \}\
-\
-        document.addEventListener('keydown', (e) => \{\
-            if (e.key === 'ArrowRight' || e.key === ' ') \{ e.preventDefault(); changeSlide(1); \}\
-            if (e.key === 'ArrowLeft') \{ e.preventDefault(); changeSlide(-1); \}\
-        \});\
-\
-        render();\
-    </script>\
-</body>\
-</html>}
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(181, 55, 242, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 245, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, transparent 0%, transparent 15%, rgba(255,255,255,0.01) 15.2%, transparent 15.5%, transparent 30%, rgba(255,255,255,0.01) 30.2%, transparent 30.5%);
+            background-attachment: fixed;
+            color: var(--text);
+            font-family: 'Manrope', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            user-select: none;
+        }
+
+        .unbounded { font-family: 'Unbounded', sans-serif; text-transform: uppercase; }
+        .orbitron { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
+        .montserrat { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #FFFFFF 0%, var(--neon-purple) 45%, var(--neon-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .slide-container {
+            flex-grow: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            padding-bottom: 90px; 
+        }
+
+        .slide {
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideFadeIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .slide.active { display: flex; }
+
+        @keyframes slideFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(11, 14, 20, 0.95);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+        }
+
+        .progress-dots { 
+            display: flex; 
+            gap: 10px; 
+            justify-content: center;
+            align-items: center;
+        }
+        .dot { 
+            min-width: 8px; 
+            height: 8px; 
+            border-radius: 50%; 
+            background: rgba(255,255,255,0.1); 
+            cursor: pointer; 
+            transition: 0.3s; 
+        }
+        .dot.active { 
+            background: var(--neon-cyan); 
+            transform: scale(1.6); 
+            box-shadow: 0 0 10px var(--neon-cyan); 
+        }
+
+        .slide-counter-nav {
+            position: absolute;
+            right: 40px;
+            opacity: 0.3;
+            font-weight: bold;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            pointer-events: none;
+        }
+
+        .btn-start {
+            background: #B537F2;
+            padding: 18px 70px;
+            border-radius: 100px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.2rem;
+            box-shadow: 0 0 30px rgba(181, 55, 242, 0.5);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .expert-photo {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            border: 4px solid var(--neon-purple);
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(181, 55, 242, 0.3);
+            background: #12151c;
+        }
+        .expert-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-placeholder-16-9 {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        .image-placeholder-16-9 img { width: 100%; height: 100%; object-fit: contain; }
+
+        .code-block {
+            background: #0D1117;
+            border: 1px solid rgba(0, 245, 255, 0.2);
+            font-family: 'Manrope', sans-serif;
+            padding: 30px;
+            border-radius: 16px;
+            color: var(--neon-cyan);
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .tz-table { width: 100%; border-collapse: collapse; font-size: 1.15rem; }
+        .tz-table th {
+            text-align: left;
+            padding: 16px 20px;
+            background: rgba(0, 245, 245, 0.08);
+            color: var(--neon-cyan);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-weight: 900;
+            border-bottom: 2px solid var(--glass-border);
+        }
+        .tz-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); vertical-align: top; }
+        .tz-label { font-weight: 800; color: white; }
+        .tz-example { color: var(--neon-purple); font-style: italic; font-size: 1rem; }
+
+        .hidden-row { opacity: 0 !important; transform: translateY(10px) !important; pointer-events: none !important; }
+        .visible-row { opacity: 1 !important; transform: translateY(0) !important; pointer-events: auto !important; transition: 0.4s ease; }
+
+        .practice-step {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 900;
+            color: white;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="typeBadge" class="type-badge montserrat hidden"></div>
+
+    <div class="slide-container" id="slides-root"></div>
+
+    <div class="nav-bar">
+        <div class="progress-dots" id="dots"></div>
+        <span class="slide-counter-nav" id="counter">01/31</span>
+    </div>
+
+    <script>
+        const slidesData = [
+            // СЛАЙД 1: ТИТУЛЬНЫЙ (ИСПРАВЛЕНО РАЗМЕР)
+            { 
+                id: 1, type: 'title', 
+                content: `<div class="text-center">
+                    <p class="montserrat opacity-60 text-2xl mb-6 tracking-[0.5em]">ДОБРО ПОЖАЛОВАТЬ В</p>
+                    <h1 class="unbounded gradient-text text-[7.8rem] mb-10 px-4 leading-tight">ВАЙБОГРАД</h1>
+                    <p class="orbitron opacity-40 text-3xl tracking-[0.3em] mb-14">Воркшоп №1</p>
+                    <button onclick="changeSlide(1)" class="btn-start">СТАРТ</button>
+                </div>`
+            },
+            // СЛАЙД 2: ОБ ЭКСПЕРТЕ
+            {
+                id: 2, type: 'info',
+                content: `<div class="flex items-center gap-20">
+                    <div class="w-1/2 flex justify-center">
+                        <div class="expert-photo">
+                            <img src="images/expert.jpg" alt="Дарья Туча" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;flex items-center justify-center h-full opacity-20 orbitron text-xl&quot;>images/expert.jpg</div>'">
+                        </div>
+                    </div>
+                    <div class="w-1/2">
+                        <p class="montserrat text-neon-cyan text-sm mb-4 tracking-widest uppercase">Об эксперте</p>
+                        <h2 class="unbounded text-6xl mb-6">Дарья Туча</h2>
+                        <ul class="space-y-4 text-xl opacity-90">
+                            <li>🌍 Ванкувер, Канада 🇨🇦</li>
+                            <li>🚀 Со-основатель LXD hero</li>
+                            <li>🎙️ Спикер конференций</li>
+                            <li>⚡ skyeng · Expedia · Kodland</li>
+                        </ul>
+                    </div>
+                </div>`
+            },
+            // СЛАЙД 3: КАРТА (УВЕЛИЧЕНО)
+            { 
+                id: 3, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[3.5rem] mb-20 tracking-widest uppercase font-black">🗺️ КАРТА ПУТИ</h2>
+                    <div class="grid grid-cols-6 gap-6 w-full px-4 relative">
+                        <div class="absolute h-[2px] bg-white/10 w-[84%] left-[8%] top-[40px] -z-10"></div>
+                        ${[
+                            { icon: '🎡', title: 'КОЛЕСО', desc: 'Этапы разработки', time: '15 МИН' },
+                            { icon: '🌀', title: 'ЛАБИРИНТ', desc: 'Создание ТЗ', time: '50 МИН' },
+                            { icon: '🤸', title: 'БАТУТЫ', desc: 'Перерыв', time: '10 МИН' },
+                            { icon: '🚂', title: 'ПОЕЗД', desc: 'Код прототипа', time: '50 МИН' },
+                            { icon: '🎠', title: 'КАРУСЕЛЬ', desc: 'Итерации', time: '15 МИН' },
+                            { icon: '🏁', title: 'ИТОГИ', desc: 'Выводы', time: '10 МИН' }
+                        ].map((item) => `
+                            <div class="flex flex-col items-center text-center">
+                                <div class="w-20 h-20 rounded-full flex items-center justify-center mb-6 text-3xl transition-all cursor-pointer bg-white/5 border border-white/20 hover:shadow-[0_0_30px_cyan]">
+                                    ${item.icon}
+                                </div>
+                                <h3 class="orbitron text-[11px] font-black mb-2 text-white uppercase">${item.title}</h3>
+                                <p class="manrope text-[10px] opacity-60 leading-tight mb-3 px-1">${item.desc}</p>
+                                <p class="montserrat text-[11px] font-black text-neon-cyan">${item.time}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>` 
+            },
+            // СЛАЙД 4: ПРАВИЛА (УВЕЛИЧЕНО)
+            { 
+                id: 4, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[3.5rem] mb-14 uppercase font-black">ПРАВИЛА ПАРКА</h2>
+                    <div class="grid grid-cols-2 gap-8 max-w-5xl w-full">
+                        <div class="glass-card p-10 flex items-center gap-8 border-cyan-500/20">
+                            <span class="text-5xl">💬</span>
+                            <p class="text-2xl font-black uppercase tracking-widest leading-tight">Задаём вопросы в чате</p>
+                        </div>
+                        <div class="glass-card p-10 flex items-center gap-8 border-purple-500/20">
+                            <span class="text-5xl">🎮</span>
+                            <p class="text-2xl font-black uppercase tracking-widest leading-tight">Включаем любопытство</p>
+                        </div>
+                        <div class="glass-card p-10 flex items-center gap-8 border-pink-500/20">
+                            <span class="text-5xl">🤖</span>
+                            <p class="text-2xl font-black uppercase tracking-widest leading-tight">ИИ-майндсет — итерируем</p>
+                        </div>
+                        <div class="glass-card p-10 flex items-center gap-8 border-cyan-500/20">
+                            <span class="text-5xl">🤝</span>
+                            <p class="text-2xl font-black uppercase tracking-widest leading-tight">Бережность друг к другу</p>
+                        </div>
+                    </div>
+                </div>` 
+            },
+            // СЛАЙД 5: НАСТРОИМСЯ НА ВАЙБ
+            { 
+                id: 5, type: 'ВОПРОС ❓', 
+                content: `<div class="text-center h-full flex flex-col justify-center items-center">
+                    <h2 class="unbounded gradient-text text-[7rem] leading-none mb-8 tracking-tighter">Настроимся на вайб</h2>
+                    <p class="orbitron opacity-40 text-4xl uppercase tracking-[0.5em] font-black">(опрос)</p>
+                </div>` 
+            },
+            // СЛАЙД 6: БЛОК 1
+            { id: 6, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[240px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">01</h3><p class="montserrat text-neon-purple tracking-widest mb-4 uppercase font-bold text-xl">БЛОК 1</p><h2 class="unbounded gradient-text text-[7rem]">ЭТАПЫ РАЗРАБОТКИ</h2></div>` },
+            // СЛАЙД 7: ПУТЬ
+            { 
+                id: 7, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-4xl mb-10 text-center uppercase font-black">ПУТЬ ОТ ИДЕИ К ПРОДУКТУ</h2>
+                    <div class="image-placeholder-16-9">
+                        <img src="images/steps.jpg" alt="Ferris Wheel Stages" onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=&quot;opacity-20 orbitron text-3xl&quot;>images/steps.jpg</span>'">
+                    </div>
+                </div>` 
+            },
+            // СЛАЙД 8: ЧТО СОЗДАЕМ
+            { 
+                id: 8, type: 'ВОПРОС ❓', 
+                content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron gradient-text text-[3.5rem] mb-12 uppercase font-black">ЧТО СОЗДАЕМ ВМЕСТЕ?</h2><div class="grid grid-cols-3 gap-6 w-full max-w-6xl">${['🎯 КВИЗ','📚 ОНЛАЙН-КУРС','🌐 САЙТ КУРСА'].map(v=>`<div class="glass-card p-14 text-center flex items-center justify-center border-orange-500/20 font-black text-2xl uppercase hover:scale-105 transition-all cursor-pointer">${v}</div>`).join('')}</div></div>` 
+            },
+            // СЛАЙД 9: ФОРМУЛА
+            { 
+                id: 9, type: 'ПРАКТИКА ✍ 5 МИН', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full"><h2 class="orbitron text-green-500 text-4xl mb-8 uppercase font-black text-center">ФОРМУЛА ИДЕИ</h2><div class="glass-card p-12 border-green-500/30 text-2xl text-center italic max-w-5xl mx-auto mb-12 shadow-2xl">[Формат] для [аудитории], который помогает [проблема], вместо [как сейчас].</div><p class="orbitron text-neon-cyan text-sm mb-6 uppercase tracking-widest text-center">Если нет идеи, выбери одну:</p><div class="grid grid-cols-3 gap-4 w-full max-w-3xl">${['КВИЗ','ОНЛАЙН-КУРС','САЙТ-ПОРТФОЛИО'].map(i=>`<div class="glass-card p-4 text-center border-white/5 font-black text-[10px] uppercase">${i}</div>`).join('')}</div></div>` 
+            },
+            // БЛОК 2 И Т.Д.
+            { id: 10, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[240px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">02</h3><p class="montserrat text-neon-cyan tracking-widest mb-4 uppercase font-bold text-xl uppercase">БЛОК 2</p><h2 class="unbounded gradient-text text-[7rem]">СОЗДАНИЕ ТЗ</h2></div>` },
+            // СЛАЙД 13: ТАБЛИЦА ТЗ
+            { 
+                id: 13, type: 'info', isSequential: true, totalSubSteps: 7,
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[3.5rem] mb-10 uppercase font-black text-center">СТРУКТУРА ТЗ</h2>
+                    <div class="glass-card p-0 overflow-hidden w-full max-w-6xl shadow-2xl">
+                        <table class="tz-table">
+                            <thead><tr><th class="w-1/4 uppercase">Раздел</th><th class="w-1/3 uppercase">Суть</th><th class="w-2/5 uppercase">Примеры</th></tr></thead>
+                            <tbody>${['Цель/Зачем?/Обучить навыку','Пользователь/Кто?/Методист школы','Функции/Что умеет?/Сценарий + прогресс','Ограничения/Что НЕ делает?/Один язык','Сценарий/Путь клиента/Экран 1, 2, 3','Контент/Тексты/Что на кнопках','Стек/Где живет?/HTML в Tilda'].map(row => {const [l,d,e]=row.split('/'); return `<tr class="step-row hidden-row"><td><span class="tz-label uppercase font-black text-sm">${l}</span></td><td><span class="opacity-70 text-sm font-bold uppercase">${d}</span></td><td><span class="tz-example">${e}</span></td></tr>`}).join('')}</tbody>
+                        </table>
+                    </div>
+                </div>`
+            },
+            // СЛАЙД 14: ПРОМПТ ТЗ
+            { 
+                id: 14, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[3.5rem] mb-10 text-center uppercase font-black">ПРОМПТ ДЛЯ ТЗ</h2>
+                    <div class="code-block w-full max-w-5xl shadow-xl leading-relaxed italic">
+                        Ты — опытный продакт-менеджер. Задача – создать ТЗ для продукта [формула идеи]. <br><br>
+                        Разделы: цель, пользователь, функции (макс. 5), ограничения, сценарий, тексты, стек. <br><br>
+                        <span class="text-neon-pink uppercase font-black not-italic text-sm">[ ВЫБЕРИ АКТУАЛЬНОЕ: ]</span><br>
+                        • Встроим в Тильда / • Добавим в курс
+                    </div>
+                </div>` 
+            },
+            // СЛАЙД 15: ДЕМО
+            { id: 15, type: 'ДЕМО 🎬', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h2 class="unbounded gradient-text text-[14rem] leading-none mb-4 tracking-tighter uppercase font-black">ДЕМО</h2></div>` },
+            // СЛАЙД 16: ЛАЙФХАКИ ТЗ (УВЕЛИЧЕНО)
+            { 
+                id: 16, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[3.5rem] mb-12 uppercase font-black">ЛАЙФХАКИ ДЛЯ ТЗ</h2>
+                    <div class="grid grid-cols-3 gap-6 w-full max-w-6xl">
+                        ${[{i:'💾',t:'Markdown',d:'Идеальный перенос'},{i:'📝',t:'Вишлист',d:'На будущее'},{i:'🎭',t:'Персоны',d:'Tone of Voice'},{i:'🧠',t:'Thinking',d:'Режим рассуждения'},{i:'🗺️',t:'User Flow',d:'Наглядный путь'},{i:'🎨',t:'Сториборд',d:'Загрузи эскизы'}].map(l=>`<div class="glass-card p-8 flex flex-col items-center text-center gap-4 border-white/5">
+                            <span class="text-6xl">${l.i}</span>
+                            <p class="text-lg font-black text-neon-cyan uppercase tracking-widest">${l.t}</p>
+                            <p class="text-xs opacity-60 font-bold uppercase">${l.d}</p>
+                        </div>`).join('')}
+                    </div>
+                </div>` 
+            },
+            // СЛАЙД 17: ПРАКТИКА ТЗ
+            { 
+                id: 17, type: 'ПРАКТИКА ✍ 20 МИН', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron text-green-500 text-[4.5rem] mb-12 uppercase font-black tracking-widest text-center">СОЗДАЙ СВОЁ ТЗ</h2>
+                    <div class="glass-card p-10 w-full max-w-4xl border-green-500/20">
+                        <div class="space-y-4">
+                            ${['Открой нейросеть','Вставь промпт','Замени [ИДЕЯ]','Прочитай версию','Исправь ошибки','Плюс в чат'].map((s,i)=>`<div class="practice-step"><div class="step-num">${i+1}</div><p class="text-2xl font-bold uppercase tracking-widest">${s}</p></div>`).join('')}
+                        </div>
+                    </div>
+                </div>` 
+            },
+            // БЛОК 3 И ПРОТОТИП
+            { id: 18, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[240px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">03</h3><p class="montserrat text-neon-pink tracking-widest mb-4 uppercase font-black text-2xl font-black">БЛОК 3</p><h2 class="unbounded gradient-text text-[7rem] leading-tight uppercase font-black">ПРОТОТИП</h2></div>` },
+            // СЛАЙД 19: UX VS UI (ОПИСАНИЯ УВЕЛИЧЕНЫ)
+            { 
+                id: 19, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[3.5rem] mb-12 uppercase font-black">UX VS UI</h2>
+                    <div class="grid grid-cols-2 gap-10 w-full max-w-6xl">
+                        <div class="glass-card p-12 border-cyan-500/30 flex flex-col gap-6">
+                            <div><h3 class="orbitron text-neon-cyan text-3xl mb-6 font-black uppercase">🗺️ UX — Путь</h3><p class="text-xl font-bold uppercase leading-tight text-white/90">Как пользователь достигнет цели?</p></div>
+                            <div class="bg-cyan-500/5 border border-cyan-500/10 p-6 rounded-xl italic opacity-70 text-sm uppercase font-black">Пример: Кнопка → Вопрос → Результат</div>
+                        </div>
+                        <div class="glass-card p-12 border-pink-500/30 flex flex-col gap-6">
+                            <div><h3 class="orbitron text-neon-pink text-3xl mb-6 font-black uppercase">🎨 UI — Оболочка</h3><p class="text-xl font-bold uppercase leading-tight text-white/90">Визуальный стиль и неон</p></div>
+                            <div class="bg-pink-500/5 border border-pink-500/10 p-6 rounded-xl italic opacity-70 text-sm uppercase font-black">Пример: Фон #0B0E14, шрифт Unbounded</div>
+                        </div>
+                    </div>
+                </div>` 
+            },
+            { id: 21, type: 'ДЕМО 🎬', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h2 class="unbounded gradient-text text-[14rem] leading-none mb-4 tracking-tighter uppercase font-black">ДЕМО</h2></div>` },
+            // СЛАЙД 30: ИТОГИ
+            { 
+                id: 30, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[4rem] mb-16 uppercase font-black tracking-widest text-center">ИТОГИ ПУТЕШЕСТВИЯ</h2>
+                    <div class="space-y-10 max-w-5xl text-2xl opacity-90 uppercase font-black tracking-widest text-center mx-auto leading-relaxed">
+                        <p>0. Вайбкодинг: Новый майндсет</p>
+                        <p>1. Этапы: От Идеи к ТЗ</p>
+                        <p>2. ТЗ: Источник правды</p>
+                        <p>3. Прототип: Код через ИИ</p>
+                        <p>4. Итерации: Точечные правки</p>
+                    </div>
+                </div>` 
+            },
+            { id: 31, type: 'ВОПРОС ❓', content: `<div class="text-center flex flex-col justify-center h-full items-center"><h2 class="unbounded gradient-text text-[12rem] leading-none mb-10 tracking-tighter uppercase font-black">СПАСИБО! 🎉</h2><p class="orbitron opacity-40 text-4xl uppercase tracking-[0.5em] font-black uppercase">ДО ВСТРЕЧИ!</p></div>` }
+        ];
+
+        let currentIndex = 0;
+        let currentSubStep = 0;
+
+        function render() {
+            const root = document.getElementById('slides-root');
+            root.innerHTML = slidesData.map((s, idx) => `
+                <div class="slide ${idx === currentIndex ? 'active' : ''}" id="slide-${idx+1}" data-type="${s.type.includes('info') || s.type === 'title' || s.type === 'chapter' ? '' : s.type}">
+                    ${s.content}
+                </div>
+            `).join('');
+            updateUI();
+        }
+
+        function updateUI() {
+            const currentSlideData = slidesData[currentIndex];
+            const slideEl = document.getElementById(`slide-${currentIndex+1}`);
+            document.getElementById('counter').innerText = `${String(currentIndex+1).padStart(2, '0')}/${String(slidesData.length).padStart(2, '0')}`;
+            const dots = document.getElementById('dots');
+            dots.innerHTML = slidesData.map((_, i) => `<div class="dot ${i === currentIndex ? 'active' : ''}" onclick="goTo(${i})"></div>`).join('');
+            const badge = document.getElementById('typeBadge');
+            const typeText = slideEl.getAttribute('data-type');
+            if (typeText) {
+                badge.innerText = typeText;
+                badge.classList.remove('hidden');
+                badge.className = 'type-badge montserrat ' + (typeText.includes('ВОПРОС') ? 'badge-question' : typeText.includes('ПРАКТИКА') ? 'badge-practice' : 'badge-demo');
+            } else { badge.classList.add('hidden'); }
+
+            if (currentSlideData.isSequential) {
+                const rows = slideEl.querySelectorAll('.step-row');
+                rows.forEach((row, index) => {
+                    if (index < currentSubStep) { row.classList.add('visible-row'); row.classList.remove('hidden-row'); }
+                    else { row.classList.add('hidden-row'); row.classList.remove('visible-row'); }
+                });
+            }
+        }
+
+        function changeSlide(dir) {
+            const currentSlideData = slidesData[currentIndex];
+            if (dir > 0) {
+                if (currentSlideData.isSequential && currentSubStep < currentSlideData.totalSubSteps) { currentSubStep++; updateUI(); }
+                else if (currentIndex < slidesData.length - 1) { currentIndex++; currentSubStep = 0; render(); }
+            } else {
+                if (currentSubStep > 0) { currentSubStep--; updateUI(); }
+                else if (currentIndex > 0) { currentIndex--; const prevSlideData = slidesData[currentIndex]; currentSubStep = prevSlideData.isSequential ? prevSlideData.totalSubSteps : 0; render(); }
+            }
+        }
+
+        function goTo(idx) { currentIndex = idx; currentSubStep = 0; render(); }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); changeSlide(1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); changeSlide(-1); }
+        });
+
+        render();
+    </script>
+</body>
+</html>
