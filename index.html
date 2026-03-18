@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -53,7 +54,7 @@
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             backdrop-filter: blur(12px);
-            border-radius: 20px;
+            border-radius: 24px;
             transition: all 0.3s ease;
         }
 
@@ -64,12 +65,12 @@
             align-items: center;
             justify-content: center;
             padding: 40px;
-            padding-bottom: 90px; 
+            padding-bottom: 100px; 
         }
 
         .slide {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1300px;
             height: 100%;
             display: none;
             flex-direction: column;
@@ -80,7 +81,7 @@
         .slide.active { display: flex; }
 
         @keyframes slideFadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -104,6 +105,9 @@
             gap: 10px; 
             justify-content: center;
             align-items: center;
+            max-width: 80%;
+            overflow-x: auto;
+            padding: 10px;
         }
         .dot { 
             min-width: 8px; 
@@ -131,36 +135,32 @@
 
         .btn-start {
             background: #B537F2;
-            padding: 18px 70px;
+            padding: 22px 90px;
             border-radius: 100px;
             color: white;
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
-            font-size: 1.2rem;
-            box-shadow: 0 0 30px rgba(181, 55, 242, 0.5);
+            font-size: 1.5rem;
+            box-shadow: 0 0 40px rgba(181, 55, 242, 0.5);
             transition: all 0.3s;
             cursor: pointer;
             border: none;
         }
 
         .expert-photo {
-            width: 380px;
-            height: 380px;
+            width: 420px;
+            height: 420px;
             border-radius: 50%;
             border: 4px solid var(--neon-purple);
             overflow: hidden;
             box-shadow: 0 0 60px rgba(181, 55, 242, 0.3);
             background: #12151c;
         }
-        .expert-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .expert-photo img { width: 100%; height: 100%; object-fit: cover; }
 
         .image-placeholder-16-9 {
             width: 100%;
-            max-width: 800px;
+            max-width: 1100px;
             aspect-ratio: 16 / 9;
             background: rgba(255,255,255,0.02);
             border: 1px solid var(--glass-border);
@@ -175,16 +175,16 @@
 
         .code-block {
             background: #0D1117;
-            border: 1px solid rgba(0, 245, 255, 0.2);
+            border: 1px solid rgba(0, 245, 255, 0.3);
             font-family: 'Manrope', sans-serif;
             padding: 30px;
-            border-radius: 16px;
+            border-radius: 20px;
             color: var(--neon-cyan);
-            font-size: 1.2rem;
-            line-height: 1.6;
+            font-size: 1.4rem;
+            line-height: 1.7;
         }
 
-        .tz-table { width: 100%; border-collapse: collapse; font-size: 1.15rem; }
+        .tz-table { width: 100%; border-collapse: collapse; font-size: 1.25rem; }
         .tz-table th {
             text-align: left;
             padding: 16px 20px;
@@ -197,30 +197,31 @@
         }
         .tz-table td { padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.08); vertical-align: top; }
         .tz-label { font-weight: 800; color: white; }
-        .tz-example { color: var(--neon-purple); font-style: italic; font-size: 1rem; }
+        .tz-example { color: var(--neon-purple); font-style: italic; font-size: 1.1rem; }
 
         .hidden-row { opacity: 0 !important; transform: translateY(10px) !important; pointer-events: none !important; }
         .visible-row { opacity: 1 !important; transform: translateY(0) !important; pointer-events: auto !important; transition: 0.4s ease; }
 
         .practice-step {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            align-items: flex-start;
+            gap: 25px;
             padding: 15px;
             border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .step-num {
-            width: 36px;
-            height: 36px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: var(--green);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 22px;
             font-weight: 900;
             color: white;
             flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(15, 92, 46, 0.4);
         }
     </style>
 </head>
@@ -237,20 +238,20 @@
 
     <script>
         const slidesData = [
-            // СЛАЙД 1: ТИТУЛЬНЫЙ (ИСПРАВЛЕНО РАЗМЕР)
+            // 01
             { 
                 id: 1, type: 'title', 
                 content: `<div class="text-center">
-                    <p class="montserrat opacity-60 text-2xl mb-6 tracking-[0.5em]">ДОБРО ПОЖАЛОВАТЬ В</p>
-                    <h1 class="unbounded gradient-text text-[7.8rem] mb-10 px-4 leading-tight">ВАЙБОГРАД</h1>
-                    <p class="orbitron opacity-40 text-3xl tracking-[0.3em] mb-14">Воркшоп №1</p>
+                    <p class="montserrat opacity-60 text-3xl mb-8 tracking-[0.5em]">ДОБРО ПОЖАЛОВАТЬ В</p>
+                    <h1 class="unbounded gradient-text text-[7.8rem] mb-12 px-10 leading-tight">ВАЙБОГРАД</h1>
+                    <p class="orbitron opacity-40 text-4xl tracking-[0.3em] mb-16">Воркшоп №1</p>
                     <button onclick="changeSlide(1)" class="btn-start">СТАРТ</button>
                 </div>`
             },
-            // СЛАЙД 2: ОБ ЭКСПЕРТЕ
+            // 02
             {
                 id: 2, type: 'info',
-                content: `<div class="flex items-center gap-20">
+                content: `<div class="flex items-center gap-24">
                     <div class="w-1/2 flex justify-center">
                         <div class="expert-photo">
                             <img src="images/expert.jpg" alt="Дарья Туча" onerror="this.style.display='none'; this.parentNode.innerHTML='<div class=&quot;flex items-center justify-center h-full opacity-20 orbitron text-xl&quot;>images/expert.jpg</div>'">
@@ -258,8 +259,8 @@
                     </div>
                     <div class="w-1/2">
                         <p class="montserrat text-neon-cyan text-sm mb-4 tracking-widest uppercase">Об эксперте</p>
-                        <h2 class="unbounded text-6xl mb-6">Дарья Туча</h2>
-                        <ul class="space-y-4 text-xl opacity-90">
+                        <h2 class="unbounded text-7xl mb-8 leading-tight">Дарья Туча</h2>
+                        <ul class="space-y-6 text-2xl opacity-90">
                             <li>🌍 Ванкувер, Канада 🇨🇦</li>
                             <li>🚀 Со-основатель LXD hero</li>
                             <li>🎙️ Спикер конференций</li>
@@ -268,12 +269,12 @@
                     </div>
                 </div>`
             },
-            // СЛАЙД 3: КАРТА (УВЕЛИЧЕНО)
+            // 03
             { 
                 id: 3, type: 'info', 
                 content: `<div class="flex flex-col items-center justify-center h-full w-full">
-                    <h2 class="orbitron gradient-text text-[3.5rem] mb-20 tracking-widest uppercase font-black">🗺️ КАРТА ПУТИ</h2>
-                    <div class="grid grid-cols-6 gap-6 w-full px-4 relative">
+                    <h2 class="orbitron gradient-text text-[3.5rem] mb-20 tracking-widest uppercase font-black text-center">🗺️ КАРТА ПУТЕШЕСТВИЯ</h2>
+                    <div class="grid grid-cols-6 gap-8 w-full px-8 relative">
                         <div class="absolute h-[2px] bg-white/10 w-[84%] left-[8%] top-[40px] -z-10"></div>
                         ${[
                             { icon: '🎡', title: 'КОЛЕСО', desc: 'Этапы разработки', time: '15 МИН' },
@@ -288,159 +289,232 @@
                                     ${item.icon}
                                 </div>
                                 <h3 class="orbitron text-[11px] font-black mb-2 text-white uppercase">${item.title}</h3>
-                                <p class="manrope text-[10px] opacity-60 leading-tight mb-3 px-1">${item.desc}</p>
+                                <p class="manrope text-[10px] opacity-60 leading-tight mb-3 px-1 font-bold">${item.desc}</p>
                                 <p class="montserrat text-[11px] font-black text-neon-cyan">${item.time}</p>
                             </div>
                         `).join('')}
                     </div>
                 </div>` 
             },
-            // СЛАЙД 4: ПРАВИЛА (УВЕЛИЧЕНО)
+            // 04
             { 
                 id: 4, type: 'info', 
                 content: `<div class="flex flex-col items-center justify-center h-full w-full">
-                    <h2 class="orbitron gradient-text text-[3.5rem] mb-14 uppercase font-black">ПРАВИЛА ПАРКА</h2>
-                    <div class="grid grid-cols-2 gap-8 max-w-5xl w-full">
+                    <h2 class="orbitron gradient-text text-[3.5rem] mb-14 uppercase font-black text-center leading-none">ПРАВИЛА ПАРКА</h2>
+                    <div class="grid grid-cols-2 gap-10 max-w-6xl w-full">
                         <div class="glass-card p-10 flex items-center gap-8 border-cyan-500/20">
-                            <span class="text-5xl">💬</span>
+                            <span class="text-7xl">💬</span>
                             <p class="text-2xl font-black uppercase tracking-widest leading-tight">Задаём вопросы в чате</p>
                         </div>
                         <div class="glass-card p-10 flex items-center gap-8 border-purple-500/20">
-                            <span class="text-5xl">🎮</span>
+                            <span class="text-7xl">🎮</span>
                             <p class="text-2xl font-black uppercase tracking-widest leading-tight">Включаем любопытство</p>
                         </div>
                         <div class="glass-card p-10 flex items-center gap-8 border-pink-500/20">
-                            <span class="text-5xl">🤖</span>
+                            <span class="text-7xl">🤖</span>
                             <p class="text-2xl font-black uppercase tracking-widest leading-tight">ИИ-майндсет — итерируем</p>
                         </div>
                         <div class="glass-card p-10 flex items-center gap-8 border-cyan-500/20">
-                            <span class="text-5xl">🤝</span>
+                            <span class="text-7xl">🤝</span>
                             <p class="text-2xl font-black uppercase tracking-widest leading-tight">Бережность друг к другу</p>
                         </div>
                     </div>
                 </div>` 
             },
-            // СЛАЙД 5: НАСТРОИМСЯ НА ВАЙБ
+            // 05
             { 
                 id: 5, type: 'ВОПРОС ❓', 
                 content: `<div class="text-center h-full flex flex-col justify-center items-center">
-                    <h2 class="unbounded gradient-text text-[7rem] leading-none mb-8 tracking-tighter">Настроимся на вайб</h2>
-                    <p class="orbitron opacity-40 text-4xl uppercase tracking-[0.5em] font-black">(опрос)</p>
+                    <h2 class="unbounded gradient-text text-[7rem] leading-none mb-8 tracking-tighter uppercase font-black">Настроимся на вайб</h2>
+                    <p class="orbitron opacity-40 text-5xl mt-10 tracking-[0.5em] font-black uppercase">(опрос)</p>
                 </div>` 
             },
-            // СЛАЙД 6: БЛОК 1
-            { id: 6, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[240px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">01</h3><p class="montserrat text-neon-purple tracking-widest mb-4 uppercase font-bold text-xl">БЛОК 1</p><h2 class="unbounded gradient-text text-[7rem]">ЭТАПЫ РАЗРАБОТКИ</h2></div>` },
-            // СЛАЙД 7: ПУТЬ
+            // 06
+            { id: 6, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">01</h3><p class="montserrat text-neon-purple text-2xl tracking-[0.6em] mb-6 font-black uppercase">БЛОК 1</p><h2 class="unbounded gradient-text text-[8rem] uppercase font-black">ЭТАПЫ РАЗРАБОТКИ</h2></div>` },
+            // 07
             { 
                 id: 7, type: 'info', 
-                content: `<div class="flex flex-col items-center justify-center h-full w-full">
-                    <h2 class="orbitron gradient-text text-4xl mb-10 text-center uppercase font-black">ПУТЬ ОТ ИДЕИ К ПРОДУКТУ</h2>
-                    <div class="image-placeholder-16-9">
-                        <img src="images/steps.jpg" alt="Ferris Wheel Stages" onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=&quot;opacity-20 orbitron text-3xl&quot;>images/steps.jpg</span>'">
-                    </div>
-                </div>` 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full"><h2 class="orbitron gradient-text text-5xl mb-16 text-center uppercase tracking-widest font-black leading-none">ПУТЬ ОТ ИДЕИ К ПРОДУКТУ</h2><div class="image-placeholder-16-9 shadow-[0_0_80px_rgba(0,245,255,0.2)]"><img src="images/steps.jpg" alt="Ferris Wheel Development Stages" onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=&quot;opacity-20 orbitron text-5xl&quot;>images/steps.jpg</span>'"></div></div>` 
             },
-            // СЛАЙД 8: ЧТО СОЗДАЕМ
+            // 08
             { 
                 id: 8, type: 'ВОПРОС ❓', 
-                content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron gradient-text text-[3.5rem] mb-12 uppercase font-black">ЧТО СОЗДАЕМ ВМЕСТЕ?</h2><div class="grid grid-cols-3 gap-6 w-full max-w-6xl">${['🎯 КВИЗ','📚 ОНЛАЙН-КУРС','🌐 САЙТ КУРСА'].map(v=>`<div class="glass-card p-14 text-center flex items-center justify-center border-orange-500/20 font-black text-2xl uppercase hover:scale-105 transition-all cursor-pointer">${v}</div>`).join('')}</div></div>` 
+                content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron gradient-text text-[3.5rem] mb-16 text-center uppercase font-black leading-none">ЧТО СОЗДАЕМ ВМЕСТЕ?</h2><div class="grid grid-cols-3 gap-10 w-full max-w-7xl"><div class="glass-card p-20 text-center flex items-center justify-center border-orange-500/30 hover:scale-105 transition-transform cursor-pointer"><p class="font-black uppercase text-4xl">🎯 КВИЗ</p></div><div class="glass-card p-20 text-center flex items-center justify-center border-orange-500/30 hover:scale-105 transition-transform cursor-pointer"><p class="font-black uppercase text-4xl">📚 ОНЛАЙН-КУРС</p></div><div class="glass-card p-20 text-center flex items-center justify-center border-orange-500/30 hover:scale-105 transition-transform cursor-pointer"><p class="font-black uppercase text-4xl">🌐 САЙТ КУРСА</p></div></div></div>` 
             },
-            // СЛАЙД 9: ФОРМУЛА
+            // 09
             { 
                 id: 9, type: 'ПРАКТИКА ✍ 5 МИН', 
-                content: `<div class="flex flex-col items-center justify-center h-full w-full"><h2 class="orbitron text-green-500 text-4xl mb-8 uppercase font-black text-center">ФОРМУЛА ИДЕИ</h2><div class="glass-card p-12 border-green-500/30 text-2xl text-center italic max-w-5xl mx-auto mb-12 shadow-2xl">[Формат] для [аудитории], который помогает [проблема], вместо [как сейчас].</div><p class="orbitron text-neon-cyan text-sm mb-6 uppercase tracking-widest text-center">Если нет идеи, выбери одну:</p><div class="grid grid-cols-3 gap-4 w-full max-w-3xl">${['КВИЗ','ОНЛАЙН-КУРС','САЙТ-ПОРТФОЛИО'].map(i=>`<div class="glass-card p-4 text-center border-white/5 font-black text-[10px] uppercase">${i}</div>`).join('')}</div></div>` 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full"><h2 class="orbitron text-green-500 text-6xl mb-12 text-center uppercase font-black">ФОРМУЛА ИДЕИ</h2><div class="glass-card p-16 border-green-500/40 text-3xl leading-relaxed text-center italic max-w-6xl mx-auto mb-16 shadow-2xl shadow-green-900/10">[Формат] для [аудитории], который помогает [проблема], вместо [как сейчас].</div><div class="w-full max-w-6xl"><p class="orbitron text-neon-cyan text-2xl mb-10 text-center tracking-widest uppercase font-black">Если нет идеи, выбери одну из этих:</p><div class="grid grid-cols-3 gap-8"><div class="glass-card p-10 text-center border-white/10 hover:border-neon-cyan transition-colors cursor-pointer"><p class="montserrat text-xl font-black uppercase">квиз</p></div><div class="glass-card p-10 text-center border-white/10 hover:border-neon-cyan transition-colors cursor-pointer"><p class="montserrat text-xl font-black uppercase">онлайн-курс</p></div><div class="glass-card p-10 text-center border-white/10 hover:border-neon-cyan transition-colors cursor-pointer"><p class="montserrat text-xl font-black uppercase">сайт-портфолио</p></div></div></div></div>` 
             },
-            // БЛОК 2 И Т.Д.
-            { id: 10, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[240px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">02</h3><p class="montserrat text-neon-cyan tracking-widest mb-4 uppercase font-bold text-xl uppercase">БЛОК 2</p><h2 class="unbounded gradient-text text-[7rem]">СОЗДАНИЕ ТЗ</h2></div>` },
-            // СЛАЙД 13: ТАБЛИЦА ТЗ
+            // 10
+            { id: 10, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">02</h3><p class="montserrat text-neon-cyan text-xl tracking-[0.6em] mb-6 font-black uppercase">БЛОК 2</p><h2 class="unbounded gradient-text text-[8rem] uppercase font-black">СОЗДАНИЕ ТЗ</h2></div>` },
+            // 11
+            { 
+                id: 11, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron gradient-text text-6xl mb-20 text-center uppercase font-black leading-none">ДВА ПОДХОДА К ПРОМПТИНГУ</h2><div class="grid grid-cols-2 gap-16 w-full max-w-7xl"><div class="glass-card p-16 border-red-500/20 opacity-50"><h3 class="orbitron text-red-500 text-4xl mb-8 font-black uppercase">❌ Бейби-промпт</h3><p class="text-3xl font-bold uppercase tracking-widest">«Сделай квиз» → AI угадывает</p></div><div class="glass-card p-16 border-cyan-500/40"><h3 class="orbitron text-neon-cyan text-4xl mb-8 font-black uppercase">✅ Мегапромпт (ТЗ)</h3><p class="text-3xl font-bold uppercase tracking-widest">ТЗ → Результат с первого раза</p></div></div></div>` 
+            },
+            // 12
+            { id: 12, type: 'info', content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron gradient-text text-[4rem] mb-16 text-center uppercase font-black uppercase leading-none">ЧТО ТАКОЕ ТЗ?</h2><div class="space-y-10 max-w-5xl mx-auto"><div class="glass-card p-12 border-l-[12px] border-cyan-400 text-4xl font-bold uppercase tracking-widest leading-none">Источник правды для ИИ</div><div class="glass-card p-12 border-l-[12px] border-cyan-400 text-4xl font-bold uppercase tracking-widest leading-none">Меньше итераций — быстрее итог</div><div class="p-12 text-center text-neon-pink orbitron text-6xl mt-16 animate-pulse tracking-widest font-black uppercase">🎬 ДЕМО</div></div></div>` },
+            // 13
             { 
                 id: 13, type: 'info', isSequential: true, totalSubSteps: 7,
                 content: `<div class="flex flex-col items-center justify-center h-full w-full">
-                    <h2 class="orbitron gradient-text text-[3.5rem] mb-10 uppercase font-black text-center">СТРУКТУРА ТЗ</h2>
-                    <div class="glass-card p-0 overflow-hidden w-full max-w-6xl shadow-2xl">
+                    <h2 class="orbitron gradient-text text-[4.5rem] mb-12 text-center uppercase font-black tracking-widest leading-none">СТРУКТУРА ТЗ</h2>
+                    <div class="glass-card p-0 overflow-hidden w-full max-w-[1200px] shadow-[0_0_80px_rgba(0,245,255,0.15)]">
                         <table class="tz-table">
-                            <thead><tr><th class="w-1/4 uppercase">Раздел</th><th class="w-1/3 uppercase">Суть</th><th class="w-2/5 uppercase">Примеры</th></tr></thead>
-                            <tbody>${['Цель/Зачем?/Обучить навыку','Пользователь/Кто?/Методист школы','Функции/Что умеет?/Сценарий + прогресс','Ограничения/Что НЕ делает?/Один язык','Сценарий/Путь клиента/Экран 1, 2, 3','Контент/Тексты/Что на кнопках','Стек/Где живет?/HTML в Tilda'].map(row => {const [l,d,e]=row.split('/'); return `<tr class="step-row hidden-row"><td><span class="tz-label uppercase font-black text-sm">${l}</span></td><td><span class="opacity-70 text-sm font-bold uppercase">${d}</span></td><td><span class="tz-example">${e}</span></td></tr>`}).join('')}</tbody>
+                            <thead><tr><th class="w-1/4 uppercase tracking-widest">Раздел</th><th class="w-1/3 uppercase tracking-widest">Суть</th><th class="w-2/5 uppercase tracking-widest">Примеры</th></tr></thead>
+                            <tbody>${['Цель/Зачем существует?/Обучить навыку','Пользователь/Кто?/Методист онлайн-школы','Функции/Что умеет?/Сценарий + прогресс','Ограничения/Что НЕ делает?/Без мультиязычности','Сценарий/Путь клиента/Экран 1, 2, 3','Контент/Тексты/Что на кнопках','Стек/Где живёт?/Tilda (HTML)'].map(row => {const [l,d,e]=row.split('/'); return `<tr class="step-row hidden-row"><td><span class="tz-label uppercase font-black text-sm">${l}</span></td><td><span class="opacity-70 text-sm font-bold uppercase">${d}</span></td><td><span class="tz-example uppercase font-black tracking-widest">${e}</span></td></tr>`}).join('')}</tbody>
                         </table>
                     </div>
                 </div>`
             },
-            // СЛАЙД 14: ПРОМПТ ТЗ
+            // 14
             { 
                 id: 14, type: 'info', 
                 content: `<div class="flex flex-col items-center justify-center h-full w-full">
-                    <h2 class="orbitron gradient-text text-[3.5rem] mb-10 text-center uppercase font-black">ПРОМПТ ДЛЯ ТЗ</h2>
-                    <div class="code-block w-full max-w-5xl shadow-xl leading-relaxed italic">
+                    <h2 class="orbitron gradient-text text-[4rem] mb-12 text-center uppercase font-black leading-none">ПРОМПТ ДЛЯ ТЗ</h2>
+                    <div class="code-block w-full max-w-6xl shadow-xl leading-relaxed text-3xl font-bold italic">
                         Ты — опытный продакт-менеджер. Задача – создать ТЗ для продукта [формула идеи]. <br><br>
-                        Разделы: цель, пользователь, функции (макс. 5), ограничения, сценарий, тексты, стек. <br><br>
+                        Разделы: цель, пользователь, функции, ограничения, сценарий, тексты, стек. <br><br>
                         <span class="text-neon-pink uppercase font-black not-italic text-sm">[ ВЫБЕРИ АКТУАЛЬНОЕ: ]</span><br>
                         • Встроим в Тильда / • Добавим в курс
                     </div>
+                    <p class="mt-12 text-2xl opacity-60 italic font-black uppercase tracking-widest text-center">🎙️ Совет: наговорите ответы голосом</p>
                 </div>` 
             },
-            // СЛАЙД 15: ДЕМО
-            { id: 15, type: 'ДЕМО 🎬', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h2 class="unbounded gradient-text text-[14rem] leading-none mb-4 tracking-tighter uppercase font-black">ДЕМО</h2></div>` },
-            // СЛАЙД 16: ЛАЙФХАКИ ТЗ (УВЕЛИЧЕНО)
+            // 15
+            { id: 15, type: 'ДЕМО 🎬', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h2 class="unbounded gradient-text text-[18rem] tracking-tighter uppercase font-black leading-none">ДЕМО</h2></div>` },
+            // 16
             { 
                 id: 16, type: 'info', 
                 content: `<div class="flex flex-col items-center justify-center h-full w-full">
-                    <h2 class="orbitron gradient-text text-[3.5rem] mb-12 uppercase font-black">ЛАЙФХАКИ ДЛЯ ТЗ</h2>
-                    <div class="grid grid-cols-3 gap-6 w-full max-w-6xl">
-                        ${[{i:'💾',t:'Markdown',d:'Идеальный перенос'},{i:'📝',t:'Вишлист',d:'На будущее'},{i:'🎭',t:'Персоны',d:'Tone of Voice'},{i:'🧠',t:'Thinking',d:'Режим рассуждения'},{i:'🗺️',t:'User Flow',d:'Наглядный путь'},{i:'🎨',t:'Сториборд',d:'Загрузи эскизы'}].map(l=>`<div class="glass-card p-8 flex flex-col items-center text-center gap-4 border-white/5">
-                            <span class="text-6xl">${l.i}</span>
-                            <p class="text-lg font-black text-neon-cyan uppercase tracking-widest">${l.t}</p>
-                            <p class="text-xs opacity-60 font-bold uppercase">${l.d}</p>
+                    <h2 class="orbitron gradient-text text-[4.5rem] mb-12 uppercase font-black text-center tracking-widest leading-none">ЛАЙФХАКИ ДЛЯ ТЗ</h2>
+                    <div class="grid grid-cols-3 gap-10 w-full max-w-[1400px]">
+                        ${[{i:'💾',t:'Markdown',d:'Идеальный перенос'},{i:'📝',t:'Вишлист',d:'На будущее'},{i:'🎭',t:'Персоны',d:'Tone of Voice'},{i:'🧠',t:'Thinking',d:'Режим рассуждения'},{i:'🗺️',t:'User Flow',d:'Наглядный путь'},{i:'🎨',t:'Сториборд',d:'Загрузи эскизы'}].map(l=>`<div class="glass-card p-12 flex flex-col items-center text-center gap-8 border-white/5">
+                            <span class="text-9xl">${l.i}</span>
+                            <p class="text-2xl font-black text-neon-cyan uppercase tracking-widest">${l.t}</p>
+                            <p class="text-xl opacity-75 font-bold uppercase">${l.d}</p>
                         </div>`).join('')}
                     </div>
                 </div>` 
             },
-            // СЛАЙД 17: ПРАКТИКА ТЗ
+            // 17
             { 
                 id: 17, type: 'ПРАКТИКА ✍ 20 МИН', 
                 content: `<div class="flex flex-col items-center justify-center h-full w-full">
-                    <h2 class="orbitron text-green-500 text-[4.5rem] mb-12 uppercase font-black tracking-widest text-center">СОЗДАЙ СВОЁ ТЗ</h2>
-                    <div class="glass-card p-10 w-full max-w-4xl border-green-500/20">
-                        <div class="space-y-4">
-                            ${['Открой нейросеть','Вставь промпт','Замени [ИДЕЯ]','Прочитай версию','Исправь ошибки','Плюс в чат'].map((s,i)=>`<div class="practice-step"><div class="step-num">${i+1}</div><p class="text-2xl font-bold uppercase tracking-widest">${s}</p></div>`).join('')}
+                    <h2 class="orbitron text-green-500 text-[6rem] mb-16 uppercase font-black tracking-widest leading-none">СОЗДАЙ СВОЁ ТЗ</h2>
+                    <div class="glass-card p-16 w-full max-w-6xl border-green-500/30">
+                        <div class="space-y-8">
+                            ${['Открой нейросеть','Вставь промпт ТЗ','Замени [ИДЕЯ] на свою','Прочитай версию','Исправь ошибки','Плюс в чат'].map((s,i)=>`<div class="practice-step"><div class="step-num">${i+1}</div><p class="text-4xl font-bold uppercase tracking-widest">${s}</p></div>`).join('')}
                         </div>
                     </div>
                 </div>` 
             },
-            // БЛОК 3 И ПРОТОТИП
-            { id: 18, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[240px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">03</h3><p class="montserrat text-neon-pink tracking-widest mb-4 uppercase font-black text-2xl font-black">БЛОК 3</p><h2 class="unbounded gradient-text text-[7rem] leading-tight uppercase font-black">ПРОТОТИП</h2></div>` },
-            // СЛАЙД 19: UX VS UI (ОПИСАНИЯ УВЕЛИЧЕНЫ)
+            // 18
+            { id: 18, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">03</h3><p class="montserrat text-neon-pink tracking-widest mb-4 uppercase font-black text-2xl uppercase font-black">БЛОК 3</p><h2 class="unbounded gradient-text text-[8rem] uppercase font-black">ПРОТОТИП</h2></div>` },
+            // 19
             { 
                 id: 19, type: 'info', 
                 content: `<div class="flex flex-col items-center justify-center h-full w-full">
-                    <h2 class="orbitron gradient-text text-[3.5rem] mb-12 uppercase font-black">UX VS UI</h2>
-                    <div class="grid grid-cols-2 gap-10 w-full max-w-6xl">
-                        <div class="glass-card p-12 border-cyan-500/30 flex flex-col gap-6">
-                            <div><h3 class="orbitron text-neon-cyan text-3xl mb-6 font-black uppercase">🗺️ UX — Путь</h3><p class="text-xl font-bold uppercase leading-tight text-white/90">Как пользователь достигнет цели?</p></div>
-                            <div class="bg-cyan-500/5 border border-cyan-500/10 p-6 rounded-xl italic opacity-70 text-sm uppercase font-black">Пример: Кнопка → Вопрос → Результат</div>
+                    <h2 class="orbitron gradient-text text-[4.5rem] mb-16 text-center uppercase font-black tracking-widest leading-none">UX VS UI</h2>
+                    <div class="grid grid-cols-2 gap-16 w-full max-w-7xl">
+                        <div class="glass-card p-16 border-cyan-500/30 flex flex-col gap-10 shadow-2xl shadow-cyan-900/20">
+                            <div><h3 class="orbitron text-neon-cyan text-5xl mb-8 font-black uppercase tracking-widest">🗺️ UX — Путь</h3><p class="text-2xl font-bold mb-8 uppercase leading-tight text-white/90">Как пользователь достигнет цели?</p></div>
+                            <div class="bg-cyan-500/5 border border-cyan-500/20 p-8 rounded-2xl italic opacity-70 text-2xl font-black tracking-widest uppercase">Пример: Кнопка → Вопрос → Результат</div>
                         </div>
-                        <div class="glass-card p-12 border-pink-500/30 flex flex-col gap-6">
-                            <div><h3 class="orbitron text-neon-pink text-3xl mb-6 font-black uppercase">🎨 UI — Оболочка</h3><p class="text-xl font-bold uppercase leading-tight text-white/90">Визуальный стиль и неон</p></div>
-                            <div class="bg-pink-500/5 border border-pink-500/10 p-6 rounded-xl italic opacity-70 text-sm uppercase font-black">Пример: Фон #0B0E14, шрифт Unbounded</div>
+                        <div class="glass-card p-16 border-pink-500/30 flex flex-col gap-10 shadow-2xl shadow-pink-900/20">
+                            <div><h3 class="orbitron text-neon-pink text-5xl mb-8 font-black uppercase tracking-widest">🎨 UI — Оболочка</h3><p class="text-2xl font-bold mb-8 uppercase leading-tight text-white/90">Визуальный стиль и неон</p></div>
+                            <div class="bg-pink-500/5 border border-pink-500/20 p-8 rounded-2xl italic opacity-70 text-2xl font-black tracking-widest uppercase">Пример: Фон #0B0E14, шрифт Unbounded</div>
                         </div>
                     </div>
                 </div>` 
             },
-            { id: 21, type: 'ДЕМО 🎬', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h2 class="unbounded gradient-text text-[14rem] leading-none mb-4 tracking-tighter uppercase font-black">ДЕМО</h2></div>` },
-            // СЛАЙД 30: ИТОГИ
+            // 20
+            { 
+                id: 20, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[4.5rem] mb-12 text-center uppercase font-black tracking-widest leading-none">ПРОМПТ ПРОТОТИПА</h2>
+                    <div class="code-block w-full max-w-6xl shadow-2xl text-2xl leading-relaxed font-bold italic">
+                        <p class="mb-10 font-black uppercase tracking-widest not-italic">Роль: Ты фронтенд разработчик (Apple стиль).</p>
+                        <p class="mb-10">Контекст: Создай интерактивный прототип продукта [описание].</p>
+                        <p class="text-4xl text-neon-cyan font-black mb-8 uppercase tracking-widest not-italic">ИСПОЛЬЗУЙ ЭТОТ ТЗ:</p>
+                        <ul class="ml-16 list-disc text-3xl opacity-90 space-y-6 font-bold uppercase">
+                            <li>Добавь текст своего ТЗ</li>
+                            <li>Используй HTML, CSS, JavaScript</li>
+                            <li>Референс для дизайна + Шрифт</li>
+                        </ul>
+                    </div>
+                </div>` 
+            },
+            // 21
+            { id: 21, type: 'ДЕМО 🎬', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h2 class="unbounded gradient-text text-[18rem] tracking-tighter uppercase font-black leading-none">ДЕМО</h2><p class="orbitron opacity-40 text-5xl mt-12 tracking-[0.6em] font-black uppercase">ЗАПУСК КОДА</p></div>` },
+            // 22
+            { 
+                id: 22, type: 'ПРАКТИКА ✍ 20 МИН', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron text-green-500 text-[6rem] mb-16 uppercase font-black tracking-widest text-center leading-none">ЗАПУСТИ ПРОТОТИП</h2>
+                    <div class="glass-card p-16 w-full max-w-6xl border-green-500/30">
+                        <div class="space-y-10">
+                            <div class="practice-step"><div class="step-num">1</div><p class="text-3xl font-black uppercase tracking-widest text-white/90">Составь промпт прототипа</p></div>
+                            <div class="practice-step"><div class="step-num">2</div><p class="text-3xl font-black uppercase tracking-widest text-white/90">Отправь в текстовую AI</p></div>
+                            <div class="practice-step"><div class="step-num">3</div><div><p class="text-3xl font-black mb-6 uppercase text-neon-cyan tracking-widest">Оцени результат:</p><ul class="text-2xl opacity-80 list-disc ml-14 space-y-4 italic font-bold"><li>Соответствие ТЗ?</li><li>Точность UX и UI?</li><li>Корректность текстов?</li></ul></div></div>
+                        </div>
+                    </div>
+                </div>` 
+            },
+            // 23
+            { id: 23, type: 'ВОПРОС ❓', content: `<div class="text-center h-full flex flex-col justify-center"><h2 class="orbitron gradient-text text-[4.5rem] mb-20 uppercase font-black tracking-widest uppercase">ОЦЕНИ РЕЗУЛЬТАТ (1-10)</h2><div class="flex justify-center gap-16"><div class="glass-card p-24 w-72 border-orange-500/30 text-5xl font-black uppercase tracking-widest text-center shadow-xl">ТЗ?</div><div class="glass-card p-24 w-72 border-orange-500/30 text-5xl font-black uppercase tracking-widest text-center shadow-xl">UI?</div><div class="glass-card p-24 w-72 border-orange-500/30 text-5xl font-black uppercase tracking-widest text-center shadow-xl">ТЕКСТ?</div></div></div>` },
+            // 24
+            { 
+                id: 24, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[4.5rem] mb-12 uppercase font-black tracking-widest leading-none">ЛАЙФХАКИ ДЛЯ КОДА</h2>
+                    <div class="grid grid-cols-1 gap-12 w-full max-w-6xl mx-auto">
+                        <div class="glass-card p-14 border-cyan-500/30 flex items-center gap-14 hover:scale-[1.02]">
+                            <span class="text-8xl shrink-0">💡</span>
+                            <div><p class="text-3xl uppercase font-black text-neon-cyan mb-4 tracking-widest uppercase">Стиль</p><p class="text-3xl opacity-90 italic font-black leading-relaxed uppercase">«Придумай 5 вариантов цветовой палитры в стиле Apple»</p></div>
+                        </div>
+                        <div class="glass-card p-14 border-purple-500/30 flex items-center gap-14 hover:scale-[1.02]">
+                            <span class="text-8xl shrink-0">💡</span>
+                            <div><p class="text-2xl uppercase font-black text-neon-purple mb-4 tracking-widest uppercase">Критика</p><p class="text-3xl opacity-90 italic font-black leading-relaxed uppercase">Скиньте скриншот: «Что здесь не работает в UX?»</p></div>
+                        </div>
+                        <div class="glass-card p-14 border-cyan-500/30 flex items-center gap-14 hover:scale-[1.02]">
+                            <span class="text-8xl shrink-0">💡</span>
+                            <div><p class="text-3xl uppercase font-black text-neon-cyan mb-4 tracking-widest uppercase">Мульти-AI</p><p class="text-3xl opacity-90 italic font-black leading-relaxed uppercase">Сравните результаты Claude и Gemini, возьмите лучшее</p></div>
+                        </div>
+                    </div>
+                </div>` 
+            },
+            // 25
+            { id: 25, type: 'chapter', content: `<div class="text-center h-full flex flex-col justify-center items-center"><h3 class="unbounded opacity-5 text-[280px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">04</h3><p class="montserrat text-neon-purple tracking-widest mb-4 uppercase font-black text-2xl uppercase font-black">БЛОК 4</p><h2 class="unbounded gradient-text text-[8rem] uppercase font-black leading-tight">ИТЕРАЦИИ</h2></div>` },
+            // 26
+            { id: 26, type: 'info', content: `<div class="flex flex-col items-center justify-center h-full w-full"><h2 class="orbitron text-red-500 text-7xl mb-16 uppercase font-black tracking-widest leading-none">GITHUB</h2><div class="glass-card p-24 text-center border-red-500/30 shadow-[0_0_100px_rgba(255,0,0,0.2)] text-7xl font-black uppercase leading-tight tracking-tighter uppercase font-black">GitHub — ваша страховка<br>и история версий</div></div>` },
+            // 27
+            { 
+                id: 27, type: 'info', 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full">
+                    <h2 class="orbitron gradient-text text-[3.5rem] mb-16 uppercase font-black text-center tracking-widest leading-none font-black">КАК ПРАВИТЬ ПРОТОТИП?</h2>
+                    <div class="grid grid-cols-2 gap-10 max-w-7xl w-full mx-auto text-left">
+                        <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-cyan block mb-6 text-3xl">Step-by-step</strong> Одно изменение за раз.</div>
+                        <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-pink block mb-6 text-3xl">Если сломалось</strong> Опиши ошибку точно + скрин.</div>
+                        <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-cyan block mb-6 text-3xl">Не то</strong> Напиши: «Мне нужно, чтобы...»</div>
+                        <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-pink block mb-6 text-3xl">Только UI</strong> Не трогай логику и функции.</div>
+                        <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-cyan block mb-6 text-3xl">Добавление</strong> Добавь [элемент], остальное стоп.</div>
+                        <div class="glass-card p-10 border-white/5 text-2xl leading-relaxed font-black uppercase tracking-widest"><strong class="text-neon-pink block mb-6 text-3xl">Тексты</strong> Меняйте через поиск в коде.</div>
+                    </div>
+                </div>` 
+            },
+            // 28
+            { id: 28, type: 'ПРАКТИКА ✍ 10 МИН', content: `<div class="flex flex-col items-center justify-center h-full"><h2 class="orbitron text-green-500 text-[6rem] mb-12 uppercase font-black uppercase tracking-widest font-black leading-none">P2P ОБЗОР</h2><p class="text-center opacity-75 italic text-6xl font-bold tracking-widest uppercase font-black">Смотрим работы коллег</p></div>` },
+            // 29
+            { id: 29, type: 'info', content: `<div class="flex flex-col items-center justify-center h-full w-full"><div class="glass-card p-32 border-neon-cyan text-center shadow-2xl shadow-cyan-900/20"><p class="orbitron text-neon-cyan text-3xl mb-12 font-black uppercase tracking-widest tracking-[0.5em] uppercase font-black">🏠 ДОМАШНЕЕ ЗАДАНИЕ</p><h2 class="unbounded text-[6rem] mb-12 tracking-tighter uppercase font-black leading-none">ДОВЕСТИ ДО MVP</h2><p class="opacity-80 italic uppercase text-4xl font-bold tracking-widest text-center font-bold">Наполни контентом и исправь UX</p></div></div>` },
+            // 30
             { 
                 id: 30, type: 'info', 
-                content: `<div class="flex flex-col items-center justify-center h-full w-full">
-                    <h2 class="orbitron gradient-text text-[4rem] mb-16 uppercase font-black tracking-widest text-center">ИТОГИ ПУТЕШЕСТВИЯ</h2>
-                    <div class="space-y-10 max-w-5xl text-2xl opacity-90 uppercase font-black tracking-widest text-center mx-auto leading-relaxed">
-                        <p>0. Вайбкодинг: Новый майндсет</p>
-                        <p>1. Этапы: От Идеи к ТЗ</p>
-                        <p>2. ТЗ: Источник правды</p>
-                        <p>3. Прототип: Код через ИИ</p>
-                        <p>4. Итерации: Точечные правки</p>
-                    </div>
-                </div>` 
+                content: `<div class="flex flex-col items-center justify-center h-full w-full"><h2 class="orbitron gradient-text text-7xl mb-16 uppercase font-black tracking-widest leading-none font-black">ИТОГИ ПУТЕШЕСТВИЯ</h2><div class="space-y-12 max-w-5xl text-3xl opacity-90 uppercase font-black tracking-widest leading-normal text-center mx-auto font-bold uppercase"><p>0. Вайбкодинг: Новый майндсет</p><p>1. Этапы: От Идеи к ТЗ</p><p>2. ТЗ: Источник правды</p><p>3. Прототип: Код через ИИ</p><p>4. Итерации: Точечные правки</p></div></div>` 
             },
-            { id: 31, type: 'ВОПРОС ❓', content: `<div class="text-center flex flex-col justify-center h-full items-center"><h2 class="unbounded gradient-text text-[12rem] leading-none mb-10 tracking-tighter uppercase font-black">СПАСИБО! 🎉</h2><p class="orbitron opacity-40 text-4xl uppercase tracking-[0.5em] font-black uppercase">ДО ВСТРЕЧИ!</p></div>` }
+            // 31
+            { id: 31, type: 'ВОПРОС ❓', content: `<div class="text-center flex flex-col justify-center h-full items-center"><h2 class="unbounded gradient-text text-[14rem] leading-none mb-10 tracking-tighter uppercase font-black">СПАСИБО! 🎉</h2><p class="orbitron opacity-40 text-7xl uppercase tracking-[0.5em] font-black uppercase">ДО ВСТРЕЧИ!</p></div>` }
         ];
 
         let currentIndex = 0;
